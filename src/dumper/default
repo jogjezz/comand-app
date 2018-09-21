@@ -1,7 +1,7 @@
 server {
     listen 80;
     listen [::]:80;
-    root /var/www/html/pelni/public;
+    root /var/www/html/public;
     index index.php index.html index.htm index.nginx-debian.html;
 
     server_name 128.199.102.10;
