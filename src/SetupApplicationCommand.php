@@ -45,7 +45,6 @@ class SetupApplicationCommand extends Command
         $output->writeln("source on process to pull");
         $this->pullLatestSources($output);
         $output->writeln("source cloned.");
-        $output->writeln("create sync service");
     }
 
     public function pullLatestSources(OutputInterface $output)
