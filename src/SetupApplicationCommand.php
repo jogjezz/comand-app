@@ -47,18 +47,18 @@ class SetupApplicationCommand extends Command
         $output->writeln("source cloned.");
         $output->writeln("create sync service");
         $targetDir = "/etc/systemd/system/";
-        $sourceFile = "/../../dumper/pelni.service";
+        $sourceFile = "dumper/pelni.service";
         Helper::copyFile($sourceFile, $targetDir);
         exec("service pelni start");
         $output->writeln("create sync service-bulk");
         $targetDir = "/etc/systemd/system/";
-        $sourceFile = "/../../dumper/pelni-sync-bulk.service";
+        $sourceFile = "dumper/pelni-sync-bulk.service";
         Helper::copyFile($sourceFile, $targetDir);
         $output->writeln("run sync service-bulk");
         exec("service pelni-sync-bulk start");
         $output->writeln("setup web-server");
         $targetDir = "/etc/nginx/sites-enabled/";
-        $sourceFile = "/../../dumper/default";
+        $sourceFile = "dumper/default";
         Helper::copyFile($sourceFile, $targetDir);
 
     }
@@ -83,8 +83,8 @@ class SetupApplicationCommand extends Command
         chdir($targetDir);
         $fileGetContet = "";
         if ($this->type == "HO")
-            $fileGetContet = file_get_contents("/../../dumper/ho");
-        else $fileGetContet = file_get_contents("/../../dumper/kapal");
+            $fileGetContet = file_get_contents("dumper/ho");
+        else $fileGetContet = file_get_contents("dumper/kapal");
         file_put_contents("env.php", $fileGetContet);
         chdir("/");
     }
