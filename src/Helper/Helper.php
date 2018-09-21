@@ -22,7 +22,7 @@ class Helper
                             mkdir($dest . "/" . $file);
                         }
                         echo "copy " . $source . "/" . $file . ' to ' . $dest . "/" . $file, PHP_EOL;
-                        copyFile($source . "/" . $file, $dest . "/" . $file);
+                        self::copyFile($source . "/" . $file, $dest . "/" . $file);
                     } else {
                         echo "copy " . $source . "/" . $file . ' to ' . $dest . "/" . $file, PHP_EOL;
                         copy($source . "/" . $file, $dest . "/" . $file);
