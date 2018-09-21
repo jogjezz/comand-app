@@ -52,13 +52,13 @@ class SetupApplicationCommand extends Command
         exec("service pelni start");
         $output->writeln("create sync service-bulk");
         $targetDir = "/etc/systemd/system/";
-        $sourceFile = "../dumper/pelni-sync-bulk.service";
+        $sourceFile = "/dumper/pelni-sync-bulk.service";
         Helper::copyFile($sourceFile, $targetDir);
         $output->writeln("run sync service-bulk");
         exec("service pelni-sync-bulk start");
         $output->writeln("setup web-server");
         $targetDir = "/etc/nginx/sites-enabled/";
-        $sourceFile = "../dumper/default";
+        $sourceFile = "/dumper/default";
         Helper::copyFile($sourceFile, $targetDir);
 
     }
@@ -79,12 +79,12 @@ class SetupApplicationCommand extends Command
 
     protected function createEnv()
     {
-        $targetDir = "/var/www/html/pelni/config/";
+        $targetDir = "/var/www/html/config/";
         chdir($targetDir);
         $fileGetContet = "";
         if ($this->type == "HO")
-            $fileGetContet = file_get_contents("./dumper/ho");
-        else $fileGetContet = file_get_contents("./dumper/kapal");
+            $fileGetContet = file_get_contents("/dumper/ho");
+        else $fileGetContet = file_get_contents("/dumper/kapal");
         file_put_contents("env.php", $fileGetContet);
         chdir("/");
     }
