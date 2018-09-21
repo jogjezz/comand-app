@@ -48,8 +48,8 @@ class PatchDatabaseCommand extends Command
     {
         $query = file_get_contents(__DIR__ . "/dumper/dummy.sql");
         $conn = new databaseConnection($this->username, $this->password, $this->database);
-        $sql = $conn->getPdo()->prepare($query);
-        $sql->execute();
+        $sql = $conn->getPdo();
+        $sql->exec($query);
         foreach ($sql->errorInfo() as $e) {
             print_r($e);
         }
