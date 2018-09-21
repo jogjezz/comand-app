@@ -34,8 +34,7 @@ class SetupApplicationCommand extends Command
             ->setHelp("example commad install-ho http://dekalitz.gitlabl.com/ username_repo password_repo target_folder project_type")
             ->addArgument('username', InputArgument::REQUIRED, 'username repository.')
             ->addArgument("password", InputArgument::REQUIRED, "password repository")
-            ->addArgument("type", InputArgument::REQUIRED, "type project")
-            ->addArgument("path", InputArgument::REQUIRED, "path project");
+            ->addArgument("type", InputArgument::REQUIRED, "type project");
     }
 
     public function execute(InputInterface $input, OutputInterface $output)
@@ -49,18 +48,18 @@ class SetupApplicationCommand extends Command
         $output->writeln("source cloned.");
         $output->writeln("create sync service");
         $targetDir = "/etc/systemd/system/";
-        $sourceFile = "./dumper/pelni.service";
+        $sourceFile = "../dumper/pelni.service";
         Helper::copyFile($sourceFile, $targetDir);
         exec("service pelni start");
         $output->writeln("create sync service-bulk");
         $targetDir = "/etc/systemd/system/";
-        $sourceFile = "./dumper/pelni-sync-bulk.service";
+        $sourceFile = "../dumper/pelni-sync-bulk.service";
         Helper::copyFile($sourceFile, $targetDir);
         $output->writeln("run sync service-bulk");
         exec("service pelni-sync-bulk start");
         $output->writeln("setup web-server");
         $targetDir = "/etc/nginx/sites-enabled/";
-        $sourceFile = "./dumper/default";
+        $sourceFile = "../dumper/default";
         Helper::copyFile($sourceFile, $targetDir);
 
     }
@@ -69,15 +68,12 @@ class SetupApplicationCommand extends Command
     {
         exec("apt get install composer");
         $output->writeln("source on process to pull");
-        if (file_exists($this->targetFolder)) {
-            mkdir($this->targetFolder);
-        }
-        chdir($this->targetFolder);
+        chdir("/var/www/html");
         exec("git init");
         $username = $this->usernameRepo;
         $password = $this->passwordRepo;
         exec('git reset --hard');
-        exec("git pull https://" . $username . ":" . $password . "@gitlab.com/dekaulitz/pelni-dev.git development", $result);
+        exec("git pull https://" . $username . ":" . $password . "@gitlab.com/dekaulitz/pelni-dev.git dev", $result);
         exec("composer dump-autoload -o");//        exec("composer dump-autoload -o");
     }
 
