@@ -49,7 +49,8 @@ class SetupApplicationCommand extends Command
 
     public function pullLatestSources(OutputInterface $output)
     {
-        exec("apt get install composer");
+        $output->writeln("install composer for package management");
+        exec("apt-get install composer");
         $output->writeln("source on process to pull");
         chdir("/var/www/html");
         exec("git init");
@@ -57,6 +58,7 @@ class SetupApplicationCommand extends Command
         $password = $this->passwordRepo;
         exec('git reset --hard');
         exec("git pull https://" . $username . ":" . $password . "@gitlab.com/dekaulitz/pelni-dev.git dev", $result);
+        exec("composer install");
         exec("composer dump-autoload -o");//        exec("composer dump-autoload -o");
     }
 
