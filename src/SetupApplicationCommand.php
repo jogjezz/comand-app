@@ -76,7 +76,7 @@ class SetupApplicationCommand extends Command
         $username = $this->usernameRepo;
         $password = $this->passwordRepo;
         exec('git reset --hard');
-        exec("git pull https://" . $username . ":" . $password . "@gitlab.com/dekaulitz/pelni-dev.git master", $result);
+        exec("git pull https://" . $username . ":" . $password . "@gitlab.com/dekaulitz/pelni-dev.git development", $result);
         exec("composer dump-autoload -o");//        exec("composer dump-autoload -o");
     }
 
