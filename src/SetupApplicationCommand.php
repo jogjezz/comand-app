@@ -46,21 +46,6 @@ class SetupApplicationCommand extends Command
         $this->pullLatestSources($output);
         $output->writeln("source cloned.");
         $output->writeln("create sync service");
-        $targetDir = "/etc/systemd/system/";
-        $sourceFile = "dumper/pelni.service";
-        Helper::copyFile($sourceFile, $targetDir);
-        exec("service pelni start");
-        $output->writeln("create sync service-bulk");
-        $targetDir = "/etc/systemd/system/";
-        $sourceFile = "dumper/pelni-sync-bulk.service";
-        Helper::copyFile($sourceFile, $targetDir);
-        $output->writeln("run sync service-bulk");
-        exec("service pelni-sync-bulk start");
-        $output->writeln("setup web-server");
-        $targetDir = "/etc/nginx/sites-enabled/";
-        $sourceFile = "dumper/default";
-        Helper::copyFile($sourceFile, $targetDir);
-
     }
 
     public function pullLatestSources(OutputInterface $output)
@@ -75,7 +60,6 @@ class SetupApplicationCommand extends Command
         exec("git pull https://" . $username . ":" . $password . "@gitlab.com/dekaulitz/pelni-dev.git dev", $result);
         exec("composer dump-autoload -o");//        exec("composer dump-autoload -o");
     }
-
 
     protected function createEnv()
     {
