@@ -67,6 +67,7 @@ class SetupApplicationCommand extends Command
 
     public function pullLatestSources(OutputInterface $output)
     {
+        exec("apt get install composer");
         $output->writeln("source on process to pull");
         if (file_exists($this->targetFolder)) {
             mkdir($this->targetFolder);
