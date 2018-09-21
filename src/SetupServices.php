@@ -32,18 +32,18 @@ class SetupServices extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $targetDir = "/etc/systemd/system/";
-        $sourceFile = "dumper/pelni.service";
+        $sourceFile = "../dumper/pelni.service";
         Helper::copyFile($sourceFile, $targetDir);
         exec("service pelni start");
         $output->writeln("create sync service-bulk");
         $targetDir = "/etc/systemd/system/";
-        $sourceFile = "dumper/pelni-sync-bulk.service";
+        $sourceFile = "../dumper/pelni-sync-bulk.service";
         Helper::copyFile($sourceFile, $targetDir);
         $output->writeln("run sync service-bulk");
         exec("service pelni-sync-bulk start");
         $output->writeln("setup web-server");
         $targetDir = "/etc/nginx/sites-enabled/";
-        $sourceFile = "dumper/default";
+        $sourceFile = "../dumper/default";
         Helper::copyFile($sourceFile, $targetDir);
     }
 }
