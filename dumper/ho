@@ -1,0 +1,82 @@
+<?php
+//application type KAPAL or HO
+define("BASE_PATH", __DIR__ . "/../");
+$environment = [
+    "development" => [
+        "debug" => true,
+        "APLICATION_TYPE" => "HO",
+        "HEAD_URL" => [
+            "URL" => "http://localhost",
+            "PORT" => "8090"
+        ],
+        "HEAD_OFFICE_URL" => "http://localhost:8090/api",
+        "redis" => [
+            "host" => "127.0.0.1",
+            "port" => 6379,
+            "database" => 15,
+            "read_write_timeout" => 0
+        ],
+        "oracle" => [
+            "host" => "oci:dbname=10.1.0.184:1541/SCMDEV",
+            "username" => "apps",
+            "password" => "pelapps1812",
+        ],
+        "database" => [
+            "driver" => "pgsql",
+            "host" => "localhost",
+            "port" => "5432",
+            "database" => "pelni",
+            "username" => "pelni",
+            "password" => "pelni",
+            "charset" => "utf8",
+            "collation" => "utf8_unicode_ci",
+            "prefix" => "",
+        ],
+        "mail" => [
+            "MAIL_DEBUG_MODE" => 1,
+            "MAIL_HOST" => "",
+            "MAIL_USERNAME" => "",
+            "MAIL_PASSWORD" => "",
+            "MAIL_PORT" => "",
+            "MAIL_SMTPSecure" => "",
+            "MAIL_SENDER" => "",
+            "MAIL_SENDER_ALIAS" => ""
+        ],
+
+    ],
+    "production" => [
+    "APLICATION_TYPE" => "HO",
+            "HEAD_URL" => [
+                "URL" => "http://localhost",
+                "PORT" => "8090"
+            ],
+        "debug" => false,
+        "database" => [
+            "driver" => "pgsql",
+            "host" => "localhost",
+            "port" => "5432",
+            "database" => "pelni",
+            "username" => "pelni",
+            "password" => "pelni",
+            "charset" => "utf8",
+            "collation" => "utf8_unicode_ci",
+            "prefix" => "",
+        ],
+        "oracle" => [
+            "host" => "oci:dbname=10.1.0.184:1541/SCMDEV",
+            "username" => "apps",
+            "password" => "pelapps1812",
+        ],
+        "mail" => [
+            "MAIL_HOST" => "",
+            "MAIL_USERNAME" => "",
+            "MAIL_PASSWORD" => "",
+            "MAIL_PORT" => "",
+            "MAIL_SMTPSecure" => "",
+            "MAIL_SENDER" => "",
+            "MAIL_SENDER_ALIAS" => "",
+        ],
+
+    ],
+
+];
