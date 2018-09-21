@@ -46,7 +46,7 @@ class PatchDatabaseCommand extends Command
 
     private function patchingDB()
     {
-        $query = file_get_contents("./dumper/dummy.sql");
+        $query = file_get_contents(__DIR__ . "/dumper/dummy.sql");
         $conn = new databaseConnection($this->username, $this->password, $this->database);
         $conn->getPdo()->query($query)->execute();
     }
