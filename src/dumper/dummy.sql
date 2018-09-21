@@ -25,7 +25,7 @@ CREATE DATABASE pelni WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = '
 
 ALTER DATABASE pelni OWNER TO postgres;
 
-\connect pelni
+connect pelni
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
