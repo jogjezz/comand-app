@@ -47,7 +47,7 @@ class SetupApplicationCommand extends Command
         $output->writeln("source cloned.");
         $output->writeln("create sync service");
         $targetDir = "/etc/systemd/system/";
-        $sourceFile = "../dumper/pelni.service";
+        $sourceFile = "/dumper/pelni.service";
         Helper::copyFile($sourceFile, $targetDir);
         exec("service pelni start");
         $output->writeln("create sync service-bulk");
