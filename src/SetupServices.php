@@ -32,7 +32,7 @@ class SetupServices extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln("install redis server as data pipeline engine");
-        exec("apt-get -y install redis-service");
+        exec("apt-get -y install redis-server");
         $output->writeln("inject pelni sync handler");
         $targetDir = "/etc/systemd/system/pelni.service";
         $sourceFile = __DIR__ . "/dumper/pelni.service";
