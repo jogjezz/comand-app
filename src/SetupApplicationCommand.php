@@ -41,7 +41,6 @@ class SetupApplicationCommand extends Command
     {
         $this->usernameRepo = $input->getArgument("username");
         $this->passwordRepo = $input->getArgument("password");
-        $this->targetFolder = $input->getArgument("path");
         $this->type = $input->getArgument("type");
         $output->writeln("source on process to pull");
         $this->pullLatestSources($output);
