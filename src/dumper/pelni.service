@@ -10,7 +10,7 @@ Group=root
 # Prefixing the path with '-' makes it try to load, but if the file doesn't
 # exist, it continues onward.
 
-ExecStart= /usr/bin/php "/var/www/html/pelni/services/service.php"
+ExecStart= /usr/bin/php "/var/www/html/services/service.php"
 Restart=always
 WorkingDirectory=/
 
