@@ -61,7 +61,7 @@ class SetupApplicationCommand extends Command
         //  exec('git reset --hard');
         //exec("git init");
         exec("git remote add origin " . $this->urlRepo);
-        exec("git pull dev" . $this->getReposistory(), $output, $resRepo);
+        exec("git pull dev " . $this->getReposistory(), $output, $resRepo);
         if ($resRepo) {
             echo "somthing happen pelease check your command", PHP_EOL;
             die();
