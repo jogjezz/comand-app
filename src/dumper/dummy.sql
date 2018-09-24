@@ -2422,21 +2422,6 @@ INSERT INTO public.administratorgroupaccess VALUES (72, 1, 56, NULL);
 INSERT INTO public.administratorgroupaccess VALUES (73, 1, 55, NULL);
 INSERT INTO public.administratorgroupaccess VALUES (74, 1, 58, NULL);
 INSERT INTO public.administratorgroupaccess VALUES (75, 1, 59, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (16, 2, 30, '2018-09-06 09:17:49.450738');
-INSERT INTO public.administratorgroupaccess VALUES (17, 2, 46, '2018-09-06 09:17:49.450738');
-INSERT INTO public.administratorgroupaccess VALUES (18, 2, 16, '2018-09-06 09:17:49.450738');
-INSERT INTO public.administratorgroupaccess VALUES (19, 2, 34, '2018-09-06 09:17:49.450738');
-INSERT INTO public.administratorgroupaccess VALUES (20, 2, 38, '2018-09-06 09:17:49.450738');
-INSERT INTO public.administratorgroupaccess VALUES (21, 2, 59, '2018-09-06 09:17:49.450738');
-INSERT INTO public.administratorgroupaccess VALUES (22, 2, 58, '2018-09-06 09:17:49.450738');
-INSERT INTO public.administratorgroupaccess VALUES (23, 2, 54, '2018-09-06 09:17:49.450738');
-INSERT INTO public.administratorgroupaccess VALUES (24, 2, 52, '2018-09-06 09:17:49.450738');
-INSERT INTO public.administratorgroupaccess VALUES (25, 2, 51, '2018-09-06 09:17:49.450738');
-INSERT INTO public.administratorgroupaccess VALUES (26, 2, 50, '2018-09-06 09:17:49.450738');
-INSERT INTO public.administratorgroupaccess VALUES (27, 2, 49, '2018-09-06 09:17:49.450738');
-INSERT INTO public.administratorgroupaccess VALUES (28, 2, 48, '2018-09-06 09:17:49.450738');
-INSERT INTO public.administratorgroupaccess VALUES (29, 2, 10, '2018-09-06 09:17:49.450738');
-INSERT INTO public.administratorgroupaccess VALUES (30, 4, 30, '2018-09-14 09:37:16.343293');
 
 
 --
@@ -2494,8 +2479,6 @@ INSERT INTO public.administratormenu VALUES (18, 'Rekapitulasi Layanan Makan', '
 --
 
 INSERT INTO public.roles VALUES (1, 'administrator', NULL, 5);
-INSERT INTO public.roles VALUES (2, 'Jenang I', '2018-08-28 18:55:21.776627', 5);
-INSERT INTO public.roles VALUES (3, 'Jenang II', '2018-08-29 10:04:17.068998', 5);
 
 
 --
@@ -2584,11 +2567,7 @@ INSERT INTO public.roles VALUES (3, 'Jenang II', '2018-08-29 10:04:17.068998', 5
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: pelni
 --
 
-INSERT INTO public.users VALUES (2, 'Seth Setiadha', 1, 4, 'sethsetiadha', '$2y$12$U5BsEAXwbNHZgvSZx.Bqre8aXUgzLzNShrJ.3hXQZMcFSQh/unDP2', NULL, '3', 'KAPAL', NULL, NULL);
-INSERT INTO public.users VALUES (1, 'Administrator', 1, 5, 'sioado', '$2y$12$U5BsEAXwbNHZgvSZx.Bqre8aXUgzLzNShrJ.3hXQZMcFSQh/unDP2', NULL, '', 'KAPAL', 'Janang', '123.456.987.0');
-INSERT INTO public.users VALUES (4, 'daniel', 1, 5, 'Daniel', '$2y$12$m23NJrMdhbY0/QMzsDMy7ONiGFCjPt60EktL/5KJPt2kNgmGgvG0K', '2018-09-14 09:32:04.611558', '', 'KAPAL', 'Pekerja', '1122334455');
-INSERT INTO public.users VALUES (5, 'agung', 1, 5, 'agung', '$2y$12$KSfXn1EOpEpQgIqbh01KJuASYmRDmjmS3cWt.FD5b0qkvM6OKg6z.', '2018-09-14 09:33:38.612117', '', 'KAPAL', 'pekerja', '223344');
-INSERT INTO public.users VALUES (3, 'daniel', 2, 5, 'daniel', '$2y$12$d9ntpXzLyAwjpTwb3/J9dexU7AAjBu2/EAqTXNDDRkDMt7fIgorHK', '2018-09-06 09:16:07.749226', '', 'KAPAL', 'pekerja', '12345');
+INSERT INTO public.users VALUES (1, 'Administrator', 1, 5, 'sioado', '$2y$12$U5BsEAXwbNHZgvSZx.Bqre8aXUgzLzNShrJ.3hXQZMcFSQh/unDP2', NULL, '', 'HO', 'Janang', '123.456.987.0');
 
 
 
