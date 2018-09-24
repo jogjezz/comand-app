@@ -31,7 +31,8 @@ class SetupApplicationCommand extends Command
         $this->setName('install-aplication')
             ->setDescription('Install Aplication PELNI as HO target.')
             ->setHelp('This allow you to pull latest source from master from your git Repositry')
-            ->setHelp("example commad install-ho http://dekalitz.gitlabl.com/ username_repo password_repo target_folder project_type")
+            ->setHelp("example commad install-ho http://dekalitz.gitlabl.com/ username_repo password_repo url_repository")
+            ->addArgument("repository", InputArgument::REQUIRED, "url repository")
             ->addArgument('username', InputArgument::REQUIRED, 'username repository.')
             ->addArgument("password", InputArgument::REQUIRED, "password repository")
             ->addArgument("type", InputArgument::REQUIRED, "type project");
@@ -42,6 +43,7 @@ class SetupApplicationCommand extends Command
         $this->usernameRepo = $input->getArgument("username");
         $this->passwordRepo = $input->getArgument("password");
         $this->type = $input->getArgument("type");
+        $this->urlRepo = $input->getArgument("repository");
         $output->writeln("source on process to pull");
         $this->pullLatestSources($output);
         $output->writeln("source cloned.");
@@ -57,9 +59,13 @@ class SetupApplicationCommand extends Command
         $username = $this->usernameRepo;
         $password = $this->passwordRepo;
         exec('git reset --hard');
-        exec("git pull https://" . $username . ":" . $password . "@gitlab.com/dekaulitz/pelni-dev.git dev", $result);
+        exec("git init");
+        exec("git remote add orgin " . $this->urlRepo);
+        exec("git pull origin dev");
         exec("composer install");
         exec("composer dump-autoload -o");//        exec("composer dump-autoload -o");
+        exec("chmod -R 777 /var/www/html/storage");//        exec("composer dump-autoload -o");
+        exec("chmod -R 777 /var/www/html/bootstrap/cache");//        exec("composer dump-autoload -o");
     }
 
     protected function createEnv()
