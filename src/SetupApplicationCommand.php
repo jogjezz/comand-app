@@ -61,7 +61,7 @@ class SetupApplicationCommand extends Command
         //  exec('git reset --hard');
         //exec("git init");
         exec("git remote add origin " . $this->urlRepo);
-        exec("git pull " . $this->getReposistory(). " dev", $output, $resRepo);
+        exec("git pull " . $this->getReposistory() . " dev", $output, $resRepo);
         if ($resRepo) {
             echo "somthing happen pelease check your command", PHP_EOL;
             die();
@@ -70,6 +70,7 @@ class SetupApplicationCommand extends Command
         exec("composer dump-autoload -o");//        exec("composer dump-autoload -o");
         exec("chmod -R 777 /var/www/html/storage");//        exec("composer dump-autoload -o");
         exec("chmod -R 777 /var/www/html/bootstrap/cache");//        exec("composer dump-autoload -o");
+        $this->createEnv();
     }
 
     protected function createEnv()
@@ -80,6 +81,8 @@ class SetupApplicationCommand extends Command
         if ($this->type == "HO")
             $fileGetContet = file_get_contents("dumper/ho");
         else $fileGetContet = file_get_contents("dumper/kapal");
+        $envLaravel = file_get_contents("dumper/.env");
+        file_put_contents(".env", $envLaravel);
         file_put_contents("env.php", $fileGetContet);
         chdir("/");
     }
