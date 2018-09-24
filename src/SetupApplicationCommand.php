@@ -58,8 +58,8 @@ class SetupApplicationCommand extends Command
         exec("git init");
         $username = $this->usernameRepo;
         $password = $this->passwordRepo;
-        exec('git reset --hard');
-        exec("git init");
+        //  exec('git reset --hard');
+        //exec("git init");
         exec("git remote add orgin " . $this->urlRepo);
         exec("git pull origin dev");
         exec("composer install");
