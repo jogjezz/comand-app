@@ -76,8 +76,8 @@ class SetupApplicationCommand extends Command
     protected function createEnv()
     {
         if ($this->type == "HO")
-            $fileGetContet = file_get_contents("dumper/ho");
-        else $fileGetContet = file_get_contents("dumper/kapal");
+            $fileGetContet = file_get_contents("/dumper/ho");
+        else $fileGetContet = file_get_contents("/dumper/kapal");
         $envLaravel = file_get_contents("dumper/.env");
         $targetDir = "/var/www/html/";
         chdir($targetDir);
