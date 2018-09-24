@@ -61,7 +61,7 @@ class SetupApplicationCommand extends Command
         //  exec('git reset --hard');
         //exec("git init");
         exec("git remote add origin " . $this->urlRepo);
-        exec("git pull origin dev" . $this->getReposistory());
+        exec("git pull origin dev " . $this->getReposistory());
         exec("composer install");
         exec("composer dump-autoload -o");//        exec("composer dump-autoload -o");
         exec("chmod -R 777 /var/www/html/storage");//        exec("composer dump-autoload -o");
