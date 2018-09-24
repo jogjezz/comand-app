@@ -78,7 +78,7 @@ class SetupApplicationCommand extends Command
         if ($this->type == "HO")
             $fileGetContet = file_get_contents(__DIR__ . "/dumper/ho");
         else $fileGetContet = file_get_contents(__DIR__ . "/dumper/kapal");
-        $envLaravel = file_get_contents(__DIR__ . "dumper/.env");
+        $envLaravel = file_get_contents(__DIR__ . "/dumper/.env");
         $targetDir = "/var/www/html/";
         chdir($targetDir);
         file_put_contents(".env", $envLaravel);
