@@ -79,9 +79,11 @@ class SetupApplicationCommand extends Command
             $fileGetContet = file_get_contents("dumper/ho");
         else $fileGetContet = file_get_contents("dumper/kapal");
         $envLaravel = file_get_contents("dumper/.env");
-        $targetDir = "/var/www/html/config/";
+        $targetDir = "/var/www/html/";
         chdir($targetDir);
         file_put_contents(".env", $envLaravel);
+        $targetDir = "/var/www/html/config/";
+        chdir($targetDir);
         file_put_contents("env.php", $fileGetContet);
         chdir("/");
     }
