@@ -1,6 +1,5 @@
 <?php
 //application type KAPAL or HO
-define("BASE_PATH", __DIR__ . "/../");
 $environment = [
     "development" => [
         "debug" => true,
@@ -17,7 +16,7 @@ $environment = [
             "read_write_timeout" => 0
         ],
         "oracle" => [
-            "host" => "oci:dbname=10.1.0.184:1541/SCMDEV",
+            "host" => "10.1.0.184:1541/SCMDEV",
             "username" => "apps",
             "password" => "pelapps1812",
         ],
@@ -62,11 +61,11 @@ $environment = [
             "collation" => "utf8_unicode_ci",
             "prefix" => "",
         ],
-        "oracle" => [
-            "host" => "oci:dbname=10.1.0.184:1541/SCMDEV",
-            "username" => "apps",
-            "password" => "pelapps1812",
-        ],
+       "oracle" => [
+                  "host" => "10.1.0.184:1541/SCMDEV",
+                  "username" => "apps",
+                  "password" => "pelapps1812",
+              ],
         "mail" => [
             "MAIL_HOST" => "",
             "MAIL_USERNAME" => "",
