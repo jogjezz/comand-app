@@ -2928,6 +2928,12 @@ REVOKE ALL ON SCHEMA public FROM pelni;
 GRANT ALL ON SCHEMA public TO pelni;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
+INSERT INTO public.staging_sync_table (id, staging_table, target_table, target_model, last_sync) VALUES (1, 'pelni_scm_items_v', 'item', null, '2018-09-25 10:42:41.000000');
+INSERT INTO public.staging_sync_table (id, staging_table, target_table, target_model, last_sync) VALUES (2, 'pelni_scm_io_v
+', 'kapal', null, null);
+INSERT INTO public.staging_sync_table (id, staging_table, target_table, target_model, last_sync) VALUES (3, 'pelni_scm_pr_to_po_v
+', 'popenerimaan', null, null);
+INSERT INTO public.staging_sync_table (id, staging_table, target_table, target_model, last_sync) VALUES (4, 'pelni_scm_po_lines_v', 'itempopenerimaanio', null, null);
 
 --
 -- PostgreSQL database dump complete
