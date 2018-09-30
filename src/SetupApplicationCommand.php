@@ -28,7 +28,7 @@ class SetupApplicationCommand extends Command
 
     public function configure()
     {
-        $this->setName('install-aplication')
+        $this->setName('install-ho')
             ->setDescription('Install Aplication PELNI as HO target.')
             ->setHelp('This allow you to pull latest source from master from your git Repositry')
             ->setHelp("example commad install-ho http://dekalitz.gitlabl.com/ username_repo password_repo url_repository")

@@ -28,7 +28,7 @@ class SetupApplicationKapalCommand extends Command
 
     public function configure()
     {
-        $this->setName('install-aplication')
+        $this->setName('install-kapal')
             ->setDescription('Install Aplication PELNI as KAPAL target.')
             ->setHelp('This allow you to pull latest source from master from your git Repositry')
             ->setHelp("example commad install-ho http://dekalitz.gitlabl.com/ username_repo password_repo url_repository")
