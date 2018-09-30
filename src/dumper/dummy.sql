@@ -1,7 +1,26 @@
+--
+-- PostgreSQL database dump
+--
 
+-- Dumped from database version 10.4
+-- Dumped by pg_dump version 10.4
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_with_oids = true;
 
 --
--- Name: account; Type: TABLE; Schema: public; Owner: pelni
+-- Name: account; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.account (
@@ -13,10 +32,10 @@ CREATE TABLE public.account (
 );
 
 
-ALTER TABLE public.account OWNER TO pelni;
+ALTER TABLE public.account OWNER TO postgres;
 
 --
--- Name: account_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: account_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.account_id_seq
@@ -27,23 +46,23 @@ CREATE SEQUENCE public.account_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.account_id_seq OWNER TO pelni;
+ALTER TABLE public.account_id_seq OWNER TO postgres;
 
 --
--- Name: account_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: account_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.account_id_seq OWNED BY public.account.id;
 
 
 --
--- Name: activitylog; Type: TABLE; Schema: public; Owner: pelni
+-- Name: activitylog; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.activitylog (
     id bigint NOT NULL,
     username character varying DEFAULT 200 NOT NULL,
-    "urlTransaksi" character varying(100) NOT NULL,
+    "urlTransaksi" character varying(100),
     date timestamp without time zone,
     activity character varying(100) NOT NULL,
     "refId" character varying(100) NOT NULL,
@@ -54,10 +73,10 @@ CREATE TABLE public.activitylog (
 );
 
 
-ALTER TABLE public.activitylog OWNER TO pelni;
+ALTER TABLE public.activitylog OWNER TO postgres;
 
 --
--- Name: activitylog_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: activitylog_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.activitylog_id_seq
@@ -68,17 +87,17 @@ CREATE SEQUENCE public.activitylog_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.activitylog_id_seq OWNER TO pelni;
+ALTER TABLE public.activitylog_id_seq OWNER TO postgres;
 
 --
--- Name: activitylog_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: activitylog_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.activitylog_id_seq OWNED BY public.activitylog.id;
 
 
 --
--- Name: administratoradministrator; Type: TABLE; Schema: public; Owner: pelni
+-- Name: administratoradministrator; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.administratoradministrator (
@@ -93,10 +112,10 @@ CREATE TABLE public.administratoradministrator (
 );
 
 
-ALTER TABLE public.administratoradministrator OWNER TO pelni;
+ALTER TABLE public.administratoradministrator OWNER TO postgres;
 
 --
--- Name: administratoradministrator_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: administratoradministrator_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.administratoradministrator_id_seq
@@ -107,17 +126,17 @@ CREATE SEQUENCE public.administratoradministrator_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.administratoradministrator_id_seq OWNER TO pelni;
+ALTER TABLE public.administratoradministrator_id_seq OWNER TO postgres;
 
 --
--- Name: administratoradministrator_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: administratoradministrator_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.administratoradministrator_id_seq OWNED BY public.administratoradministrator.id;
 
 
 --
--- Name: administratorgroupaccess; Type: TABLE; Schema: public; Owner: pelni
+-- Name: administratorgroupaccess; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.administratorgroupaccess (
@@ -128,10 +147,10 @@ CREATE TABLE public.administratorgroupaccess (
 );
 
 
-ALTER TABLE public.administratorgroupaccess OWNER TO pelni;
+ALTER TABLE public.administratorgroupaccess OWNER TO postgres;
 
 --
--- Name: administratorgroupaccess_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: administratorgroupaccess_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.administratorgroupaccess_id_seq
@@ -142,17 +161,17 @@ CREATE SEQUENCE public.administratorgroupaccess_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.administratorgroupaccess_id_seq OWNER TO pelni;
+ALTER TABLE public.administratorgroupaccess_id_seq OWNER TO postgres;
 
 --
--- Name: administratorgroupaccess_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: administratorgroupaccess_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.administratorgroupaccess_id_seq OWNED BY public.administratorgroupaccess.id;
 
 
 --
--- Name: administratormenu; Type: TABLE; Schema: public; Owner: pelni
+-- Name: administratormenu; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.administratormenu (
@@ -168,10 +187,10 @@ CREATE TABLE public.administratormenu (
 );
 
 
-ALTER TABLE public.administratormenu OWNER TO pelni;
+ALTER TABLE public.administratormenu OWNER TO postgres;
 
 --
--- Name: administratormenu_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: administratormenu_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.administratormenu_id_seq
@@ -182,17 +201,17 @@ CREATE SEQUENCE public.administratormenu_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.administratormenu_id_seq OWNER TO pelni;
+ALTER TABLE public.administratormenu_id_seq OWNER TO postgres;
 
 --
--- Name: administratormenu_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: administratormenu_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.administratormenu_id_seq OWNED BY public.administratormenu.id;
 
 
 --
--- Name: applicationparameter; Type: TABLE; Schema: public; Owner: pelni
+-- Name: applicationparameter; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.applicationparameter (
@@ -203,10 +222,10 @@ CREATE TABLE public.applicationparameter (
 );
 
 
-ALTER TABLE public.applicationparameter OWNER TO pelni;
+ALTER TABLE public.applicationparameter OWNER TO postgres;
 
 --
--- Name: applicationparameter_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: applicationparameter_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.applicationparameter_id_seq
@@ -217,17 +236,17 @@ CREATE SEQUENCE public.applicationparameter_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.applicationparameter_id_seq OWNER TO pelni;
+ALTER TABLE public.applicationparameter_id_seq OWNER TO postgres;
 
 --
--- Name: applicationparameter_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: applicationparameter_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.applicationparameter_id_seq OWNED BY public.applicationparameter.id;
 
 
 --
--- Name: approver; Type: TABLE; Schema: public; Owner: pelni
+-- Name: approver; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.approver (
@@ -238,10 +257,10 @@ CREATE TABLE public.approver (
 );
 
 
-ALTER TABLE public.approver OWNER TO pelni;
+ALTER TABLE public.approver OWNER TO postgres;
 
 --
--- Name: approver_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: approver_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.approver_id_seq
@@ -252,17 +271,17 @@ CREATE SEQUENCE public.approver_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.approver_id_seq OWNER TO pelni;
+ALTER TABLE public.approver_id_seq OWNER TO postgres;
 
 --
--- Name: approver_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: approver_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.approver_id_seq OWNED BY public.approver.id;
 
 
 --
--- Name: item; Type: TABLE; Schema: public; Owner: pelni
+-- Name: item; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.item (
@@ -274,14 +293,18 @@ CREATE TABLE public.item (
     harga bigint DEFAULT 0,
     image character varying(200),
     date_updated timestamp without time zone DEFAULT now(),
-    expense_account bigint DEFAULT 51090106
+    expense_account bigint DEFAULT 51090106,
+    destination_type_code character varying(50),
+    item_price numeric(16,2),
+    "kapalId" bigint,
+    expense_account_id bigint
 );
 
 
-ALTER TABLE public.item OWNER TO pelni;
+ALTER TABLE public.item OWNER TO postgres;
 
 --
--- Name: item_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: item_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.item_id_seq
@@ -292,17 +315,62 @@ CREATE SEQUENCE public.item_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.item_id_seq OWNER TO pelni;
+ALTER TABLE public.item_id_seq OWNER TO postgres;
 
 --
--- Name: item_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: item_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.item_id_seq OWNED BY public.item.id;
 
 
+SET default_with_oids = false;
+
 --
--- Name: itempenerimaanbarang; Type: TABLE; Schema: public; Owner: pelni
+-- Name: item_onhand; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.item_onhand (
+    "INVENTORY_ITEM_ID" bigint NOT NULL,
+    "SEGMENT1" character varying(200),
+    "SUBINVENTORY_CODE" character varying(200),
+    "ORGANIZATION_ID" bigint,
+    "ACCT_PERIOD_ID" bigint,
+    "PERIOD_NAME" character varying(40),
+    "PERIOD_START_DATE" date,
+    "SCHEDULE_CLOSE_DATE" date,
+    "QTY" bigint,
+    "ID" bigint NOT NULL
+);
+
+
+ALTER TABLE public.item_onhand OWNER TO postgres;
+
+--
+-- Name: item_onhand_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.item_onhand_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.item_onhand_id_seq OWNER TO postgres;
+
+--
+-- Name: item_onhand_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.item_onhand_id_seq OWNED BY public.item_onhand."ID";
+
+
+SET default_with_oids = true;
+
+--
+-- Name: itempenerimaanbarang; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.itempenerimaanbarang (
@@ -318,10 +386,10 @@ CREATE TABLE public.itempenerimaanbarang (
 );
 
 
-ALTER TABLE public.itempenerimaanbarang OWNER TO pelni;
+ALTER TABLE public.itempenerimaanbarang OWNER TO postgres;
 
 --
--- Name: itempenerimaanbarang_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: itempenerimaanbarang_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.itempenerimaanbarang_id_seq
@@ -332,17 +400,17 @@ CREATE SEQUENCE public.itempenerimaanbarang_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.itempenerimaanbarang_id_seq OWNER TO pelni;
+ALTER TABLE public.itempenerimaanbarang_id_seq OWNER TO postgres;
 
 --
--- Name: itempenerimaanbarang_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: itempenerimaanbarang_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.itempenerimaanbarang_id_seq OWNED BY public.itempenerimaanbarang.id;
 
 
 --
--- Name: itempenerimaanbarangio; Type: TABLE; Schema: public; Owner: pelni
+-- Name: itempenerimaanbarangio; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.itempenerimaanbarangio (
@@ -357,10 +425,10 @@ CREATE TABLE public.itempenerimaanbarangio (
 );
 
 
-ALTER TABLE public.itempenerimaanbarangio OWNER TO pelni;
+ALTER TABLE public.itempenerimaanbarangio OWNER TO postgres;
 
 --
--- Name: itempenerimaanbarangio_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: itempenerimaanbarangio_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.itempenerimaanbarangio_id_seq
@@ -371,17 +439,17 @@ CREATE SEQUENCE public.itempenerimaanbarangio_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.itempenerimaanbarangio_id_seq OWNER TO pelni;
+ALTER TABLE public.itempenerimaanbarangio_id_seq OWNER TO postgres;
 
 --
--- Name: itempenerimaanbarangio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: itempenerimaanbarangio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.itempenerimaanbarangio_id_seq OWNED BY public.itempenerimaanbarangio.id;
 
 
 --
--- Name: itempenerimaanmakanan; Type: TABLE; Schema: public; Owner: pelni
+-- Name: itempenerimaanmakanan; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.itempenerimaanmakanan (
@@ -395,10 +463,10 @@ CREATE TABLE public.itempenerimaanmakanan (
 );
 
 
-ALTER TABLE public.itempenerimaanmakanan OWNER TO pelni;
+ALTER TABLE public.itempenerimaanmakanan OWNER TO postgres;
 
 --
--- Name: itempenerimaanmakanan_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: itempenerimaanmakanan_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.itempenerimaanmakanan_id_seq
@@ -409,17 +477,17 @@ CREATE SEQUENCE public.itempenerimaanmakanan_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.itempenerimaanmakanan_id_seq OWNER TO pelni;
+ALTER TABLE public.itempenerimaanmakanan_id_seq OWNER TO postgres;
 
 --
--- Name: itempenerimaanmakanan_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: itempenerimaanmakanan_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.itempenerimaanmakanan_id_seq OWNED BY public.itempenerimaanmakanan.id;
 
 
 --
--- Name: itempenggunaanbarang; Type: TABLE; Schema: public; Owner: pelni
+-- Name: itempenggunaanbarang; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.itempenggunaanbarang (
@@ -432,10 +500,10 @@ CREATE TABLE public.itempenggunaanbarang (
 );
 
 
-ALTER TABLE public.itempenggunaanbarang OWNER TO pelni;
+ALTER TABLE public.itempenggunaanbarang OWNER TO postgres;
 
 --
--- Name: itempenggunaanbarang_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: itempenggunaanbarang_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.itempenggunaanbarang_id_seq
@@ -446,17 +514,17 @@ CREATE SEQUENCE public.itempenggunaanbarang_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.itempenggunaanbarang_id_seq OWNER TO pelni;
+ALTER TABLE public.itempenggunaanbarang_id_seq OWNER TO postgres;
 
 --
--- Name: itempenggunaanbarang_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: itempenggunaanbarang_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.itempenggunaanbarang_id_seq OWNED BY public.itempenggunaanbarang.id;
 
 
 --
--- Name: itempenggunaanmakanan; Type: TABLE; Schema: public; Owner: pelni
+-- Name: itempenggunaanmakanan; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.itempenggunaanmakanan (
@@ -471,10 +539,10 @@ CREATE TABLE public.itempenggunaanmakanan (
 );
 
 
-ALTER TABLE public.itempenggunaanmakanan OWNER TO pelni;
+ALTER TABLE public.itempenggunaanmakanan OWNER TO postgres;
 
 --
--- Name: itempenggunaanmakanan_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: itempenggunaanmakanan_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.itempenggunaanmakanan_id_seq
@@ -485,17 +553,17 @@ CREATE SEQUENCE public.itempenggunaanmakanan_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.itempenggunaanmakanan_id_seq OWNER TO pelni;
+ALTER TABLE public.itempenggunaanmakanan_id_seq OWNER TO postgres;
 
 --
--- Name: itempenggunaanmakanan_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: itempenggunaanmakanan_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.itempenggunaanmakanan_id_seq OWNED BY public.itempenggunaanmakanan.id;
 
 
 --
--- Name: itempermintaanbarang; Type: TABLE; Schema: public; Owner: pelni
+-- Name: itempermintaanbarang; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.itempermintaanbarang (
@@ -508,10 +576,10 @@ CREATE TABLE public.itempermintaanbarang (
 );
 
 
-ALTER TABLE public.itempermintaanbarang OWNER TO pelni;
+ALTER TABLE public.itempermintaanbarang OWNER TO postgres;
 
 --
--- Name: itempermintaanbarang_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: itempermintaanbarang_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.itempermintaanbarang_id_seq
@@ -522,17 +590,17 @@ CREATE SEQUENCE public.itempermintaanbarang_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.itempermintaanbarang_id_seq OWNER TO pelni;
+ALTER TABLE public.itempermintaanbarang_id_seq OWNER TO postgres;
 
 --
--- Name: itempermintaanbarang_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: itempermintaanbarang_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.itempermintaanbarang_id_seq OWNED BY public.itempermintaanbarang.id;
 
 
 --
--- Name: itempindahbarangio; Type: TABLE; Schema: public; Owner: pelni
+-- Name: itempindahbarangio; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.itempindahbarangio (
@@ -547,10 +615,10 @@ CREATE TABLE public.itempindahbarangio (
 );
 
 
-ALTER TABLE public.itempindahbarangio OWNER TO pelni;
+ALTER TABLE public.itempindahbarangio OWNER TO postgres;
 
 --
--- Name: itempindahbarangio_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: itempindahbarangio_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.itempindahbarangio_id_seq
@@ -561,17 +629,17 @@ CREATE SEQUENCE public.itempindahbarangio_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.itempindahbarangio_id_seq OWNER TO pelni;
+ALTER TABLE public.itempindahbarangio_id_seq OWNER TO postgres;
 
 --
--- Name: itempindahbarangio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: itempindahbarangio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.itempindahbarangio_id_seq OWNED BY public.itempindahbarangio.id;
 
 
 --
--- Name: itempindahbarangsubinv; Type: TABLE; Schema: public; Owner: pelni
+-- Name: itempindahbarangsubinv; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.itempindahbarangsubinv (
@@ -585,10 +653,10 @@ CREATE TABLE public.itempindahbarangsubinv (
 );
 
 
-ALTER TABLE public.itempindahbarangsubinv OWNER TO pelni;
+ALTER TABLE public.itempindahbarangsubinv OWNER TO postgres;
 
 --
--- Name: itempindahbarangsubinv_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: itempindahbarangsubinv_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.itempindahbarangsubinv_id_seq
@@ -599,17 +667,17 @@ CREATE SEQUENCE public.itempindahbarangsubinv_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.itempindahbarangsubinv_id_seq OWNER TO pelni;
+ALTER TABLE public.itempindahbarangsubinv_id_seq OWNER TO postgres;
 
 --
--- Name: itempindahbarangsubinv_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: itempindahbarangsubinv_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.itempindahbarangsubinv_id_seq OWNED BY public.itempindahbarangsubinv.id;
 
 
 --
--- Name: itempopenerimaan; Type: TABLE; Schema: public; Owner: pelni
+-- Name: itempopenerimaan; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.itempopenerimaan (
@@ -627,10 +695,10 @@ CREATE TABLE public.itempopenerimaan (
 );
 
 
-ALTER TABLE public.itempopenerimaan OWNER TO pelni;
+ALTER TABLE public.itempopenerimaan OWNER TO postgres;
 
 --
--- Name: itempopenerimaan_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: itempopenerimaan_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.itempopenerimaan_id_seq
@@ -641,17 +709,17 @@ CREATE SEQUENCE public.itempopenerimaan_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.itempopenerimaan_id_seq OWNER TO pelni;
+ALTER TABLE public.itempopenerimaan_id_seq OWNER TO postgres;
 
 --
--- Name: itempopenerimaan_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: itempopenerimaan_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.itempopenerimaan_id_seq OWNED BY public.itempopenerimaan.id;
 
 
 --
--- Name: itempopenerimaanio; Type: TABLE; Schema: public; Owner: pelni
+-- Name: itempopenerimaanio; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.itempopenerimaanio (
@@ -668,10 +736,10 @@ CREATE TABLE public.itempopenerimaanio (
 );
 
 
-ALTER TABLE public.itempopenerimaanio OWNER TO pelni;
+ALTER TABLE public.itempopenerimaanio OWNER TO postgres;
 
 --
--- Name: itempopenerimaanio_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: itempopenerimaanio_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.itempopenerimaanio_id_seq
@@ -682,17 +750,17 @@ CREATE SEQUENCE public.itempopenerimaanio_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.itempopenerimaanio_id_seq OWNER TO pelni;
+ALTER TABLE public.itempopenerimaanio_id_seq OWNER TO postgres;
 
 --
--- Name: itempopenerimaanio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: itempopenerimaanio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.itempopenerimaanio_id_seq OWNED BY public.itempopenerimaanio.id;
 
 
 --
--- Name: kapal; Type: TABLE; Schema: public; Owner: pelni
+-- Name: kapal; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.kapal (
@@ -703,10 +771,10 @@ CREATE TABLE public.kapal (
 );
 
 
-ALTER TABLE public.kapal OWNER TO pelni;
+ALTER TABLE public.kapal OWNER TO postgres;
 
 --
--- Name: kapal_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: kapal_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.kapal_id_seq
@@ -717,17 +785,17 @@ CREATE SEQUENCE public.kapal_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.kapal_id_seq OWNER TO pelni;
+ALTER TABLE public.kapal_id_seq OWNER TO postgres;
 
 --
--- Name: kapal_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: kapal_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.kapal_id_seq OWNED BY public.kapal.id;
 
 
 --
--- Name: loginlog; Type: TABLE; Schema: public; Owner: pelni
+-- Name: loginlog; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.loginlog (
@@ -740,10 +808,10 @@ CREATE TABLE public.loginlog (
 );
 
 
-ALTER TABLE public.loginlog OWNER TO pelni;
+ALTER TABLE public.loginlog OWNER TO postgres;
 
 --
--- Name: loginlog_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: loginlog_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.loginlog_id_seq
@@ -754,17 +822,53 @@ CREATE SEQUENCE public.loginlog_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.loginlog_id_seq OWNER TO pelni;
+ALTER TABLE public.loginlog_id_seq OWNER TO postgres;
 
 --
--- Name: loginlog_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: loginlog_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.loginlog_id_seq OWNED BY public.loginlog.id;
 
 
+SET default_with_oids = false;
+
 --
--- Name: lokasiitem; Type: TABLE; Schema: public; Owner: pelni
+-- Name: logsynckapal; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.logsynckapal (
+    "ID" bigint NOT NULL,
+    process_name character varying(200),
+    process_date timestamp without time zone,
+    status character varying(40),
+    error_msg character varying(1000)
+);
+ALTER TABLE ONLY public.logsynckapal ALTER COLUMN "ID" SET STATISTICS 0;
+
+
+ALTER TABLE public.logsynckapal OWNER TO postgres;
+
+--
+-- Name: logsyncoracle; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.logsyncoracle (
+    "ID" bigint NOT NULL,
+    process_name character varying(200),
+    process_date timestamp without time zone,
+    status character varying(40),
+    error_msg character varying(1000)
+);
+ALTER TABLE ONLY public.logsyncoracle ALTER COLUMN "ID" SET STATISTICS 0;
+
+
+ALTER TABLE public.logsyncoracle OWNER TO postgres;
+
+SET default_with_oids = true;
+
+--
+-- Name: lokasiitem; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.lokasiitem (
@@ -778,10 +882,10 @@ CREATE TABLE public.lokasiitem (
 );
 
 
-ALTER TABLE public.lokasiitem OWNER TO pelni;
+ALTER TABLE public.lokasiitem OWNER TO postgres;
 
 --
--- Name: lokasiitem_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: lokasiitem_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.lokasiitem_id_seq
@@ -792,10 +896,10 @@ CREATE SEQUENCE public.lokasiitem_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.lokasiitem_id_seq OWNER TO pelni;
+ALTER TABLE public.lokasiitem_id_seq OWNER TO postgres;
 
 --
--- Name: lokasiitem_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: lokasiitem_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.lokasiitem_id_seq OWNED BY public.lokasiitem.id;
@@ -804,7 +908,7 @@ ALTER SEQUENCE public.lokasiitem_id_seq OWNED BY public.lokasiitem.id;
 SET default_with_oids = false;
 
 --
--- Name: lotnumber; Type: TABLE; Schema: public; Owner: pelni
+-- Name: lotnumber; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.lotnumber (
@@ -814,12 +918,12 @@ CREATE TABLE public.lotnumber (
 );
 
 
-ALTER TABLE public.lotnumber OWNER TO pelni;
+ALTER TABLE public.lotnumber OWNER TO postgres;
 
 SET default_with_oids = true;
 
 --
--- Name: notifications; Type: TABLE; Schema: public; Owner: pelni
+-- Name: notifications; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.notifications (
@@ -834,10 +938,10 @@ CREATE TABLE public.notifications (
 );
 
 
-ALTER TABLE public.notifications OWNER TO pelni;
+ALTER TABLE public.notifications OWNER TO postgres;
 
 --
--- Name: notifications_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: notifications_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.notifications_id_seq
@@ -848,17 +952,17 @@ CREATE SEQUENCE public.notifications_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.notifications_id_seq OWNER TO pelni;
+ALTER TABLE public.notifications_id_seq OWNER TO postgres;
 
 --
--- Name: notifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: notifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.notifications_id_seq OWNED BY public.notifications.id;
 
 
 --
--- Name: penerimaanbarang; Type: TABLE; Schema: public; Owner: pelni
+-- Name: penerimaanbarang; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.penerimaanbarang (
@@ -880,10 +984,10 @@ CREATE TABLE public.penerimaanbarang (
 );
 
 
-ALTER TABLE public.penerimaanbarang OWNER TO pelni;
+ALTER TABLE public.penerimaanbarang OWNER TO postgres;
 
 --
--- Name: penerimaanbarang_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: penerimaanbarang_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.penerimaanbarang_id_seq
@@ -894,17 +998,17 @@ CREATE SEQUENCE public.penerimaanbarang_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.penerimaanbarang_id_seq OWNER TO pelni;
+ALTER TABLE public.penerimaanbarang_id_seq OWNER TO postgres;
 
 --
--- Name: penerimaanbarang_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: penerimaanbarang_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.penerimaanbarang_id_seq OWNED BY public.penerimaanbarang.id;
 
 
 --
--- Name: penerimaanbarangio; Type: TABLE; Schema: public; Owner: pelni
+-- Name: penerimaanbarangio; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.penerimaanbarangio (
@@ -926,10 +1030,10 @@ CREATE TABLE public.penerimaanbarangio (
 );
 
 
-ALTER TABLE public.penerimaanbarangio OWNER TO pelni;
+ALTER TABLE public.penerimaanbarangio OWNER TO postgres;
 
 --
--- Name: penerimaanbarangio_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: penerimaanbarangio_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.penerimaanbarangio_id_seq
@@ -940,17 +1044,17 @@ CREATE SEQUENCE public.penerimaanbarangio_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.penerimaanbarangio_id_seq OWNER TO pelni;
+ALTER TABLE public.penerimaanbarangio_id_seq OWNER TO postgres;
 
 --
--- Name: penerimaanbarangio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: penerimaanbarangio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.penerimaanbarangio_id_seq OWNED BY public.penerimaanbarangio.id;
 
 
 --
--- Name: penerimaanmakanan; Type: TABLE; Schema: public; Owner: pelni
+-- Name: penerimaanmakanan; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.penerimaanmakanan (
@@ -975,10 +1079,10 @@ CREATE TABLE public.penerimaanmakanan (
 );
 
 
-ALTER TABLE public.penerimaanmakanan OWNER TO pelni;
+ALTER TABLE public.penerimaanmakanan OWNER TO postgres;
 
 --
--- Name: penerimaanmakanan_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: penerimaanmakanan_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.penerimaanmakanan_id_seq
@@ -989,17 +1093,17 @@ CREATE SEQUENCE public.penerimaanmakanan_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.penerimaanmakanan_id_seq OWNER TO pelni;
+ALTER TABLE public.penerimaanmakanan_id_seq OWNER TO postgres;
 
 --
--- Name: penerimaanmakanan_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: penerimaanmakanan_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.penerimaanmakanan_id_seq OWNED BY public.penerimaanmakanan.id;
 
 
 --
--- Name: penggunaanbarang; Type: TABLE; Schema: public; Owner: pelni
+-- Name: penggunaanbarang; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.penggunaanbarang (
@@ -1020,10 +1124,10 @@ CREATE TABLE public.penggunaanbarang (
 );
 
 
-ALTER TABLE public.penggunaanbarang OWNER TO pelni;
+ALTER TABLE public.penggunaanbarang OWNER TO postgres;
 
 --
--- Name: penggunaanbarang_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: penggunaanbarang_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.penggunaanbarang_id_seq
@@ -1034,17 +1138,17 @@ CREATE SEQUENCE public.penggunaanbarang_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.penggunaanbarang_id_seq OWNER TO pelni;
+ALTER TABLE public.penggunaanbarang_id_seq OWNER TO postgres;
 
 --
--- Name: penggunaanbarang_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: penggunaanbarang_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.penggunaanbarang_id_seq OWNED BY public.penggunaanbarang.id;
 
 
 --
--- Name: penggunaanmakanan; Type: TABLE; Schema: public; Owner: pelni
+-- Name: penggunaanmakanan; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.penggunaanmakanan (
@@ -1069,10 +1173,10 @@ CREATE TABLE public.penggunaanmakanan (
 );
 
 
-ALTER TABLE public.penggunaanmakanan OWNER TO pelni;
+ALTER TABLE public.penggunaanmakanan OWNER TO postgres;
 
 --
--- Name: penggunaanmakanan_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: penggunaanmakanan_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.penggunaanmakanan_id_seq
@@ -1083,17 +1187,17 @@ CREATE SEQUENCE public.penggunaanmakanan_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.penggunaanmakanan_id_seq OWNER TO pelni;
+ALTER TABLE public.penggunaanmakanan_id_seq OWNER TO postgres;
 
 --
--- Name: penggunaanmakanan_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: penggunaanmakanan_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.penggunaanmakanan_id_seq OWNED BY public.penggunaanmakanan.id;
 
 
 --
--- Name: permintaanbarang; Type: TABLE; Schema: public; Owner: pelni
+-- Name: permintaanbarang; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.permintaanbarang (
@@ -1105,7 +1209,7 @@ CREATE TABLE public.permintaanbarang (
     "locationId" bigint NOT NULL,
     "destinationType" character varying(200),
     "operatingUnit" character varying(200) NOT NULL,
-    organization character varying(200) NOT NULL,
+    organization character varying(200),
     keperluan character varying(200),
     "totalHarga" bigint DEFAULT 0,
     "totalBarang" bigint DEFAULT 0,
@@ -1123,10 +1227,10 @@ CREATE TABLE public.permintaanbarang (
 );
 
 
-ALTER TABLE public.permintaanbarang OWNER TO pelni;
+ALTER TABLE public.permintaanbarang OWNER TO postgres;
 
 --
--- Name: permintaanbarang_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: permintaanbarang_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.permintaanbarang_id_seq
@@ -1137,17 +1241,17 @@ CREATE SEQUENCE public.permintaanbarang_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.permintaanbarang_id_seq OWNER TO pelni;
+ALTER TABLE public.permintaanbarang_id_seq OWNER TO postgres;
 
 --
--- Name: permintaanbarang_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: permintaanbarang_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.permintaanbarang_id_seq OWNED BY public.permintaanbarang.id;
 
 
 --
--- Name: pindahbarangio; Type: TABLE; Schema: public; Owner: pelni
+-- Name: pindahbarangio; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.pindahbarangio (
@@ -1175,10 +1279,10 @@ CREATE TABLE public.pindahbarangio (
 );
 
 
-ALTER TABLE public.pindahbarangio OWNER TO pelni;
+ALTER TABLE public.pindahbarangio OWNER TO postgres;
 
 --
--- Name: pindahbarangio_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: pindahbarangio_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.pindahbarangio_id_seq
@@ -1189,17 +1293,17 @@ CREATE SEQUENCE public.pindahbarangio_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.pindahbarangio_id_seq OWNER TO pelni;
+ALTER TABLE public.pindahbarangio_id_seq OWNER TO postgres;
 
 --
--- Name: pindahbarangio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: pindahbarangio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.pindahbarangio_id_seq OWNED BY public.pindahbarangio.id;
 
 
 --
--- Name: pindahbarangsubinv; Type: TABLE; Schema: public; Owner: pelni
+-- Name: pindahbarangsubinv; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.pindahbarangsubinv (
@@ -1226,10 +1330,10 @@ CREATE TABLE public.pindahbarangsubinv (
 );
 
 
-ALTER TABLE public.pindahbarangsubinv OWNER TO pelni;
+ALTER TABLE public.pindahbarangsubinv OWNER TO postgres;
 
 --
--- Name: pindahbarangsubinv_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: pindahbarangsubinv_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.pindahbarangsubinv_id_seq
@@ -1240,17 +1344,17 @@ CREATE SEQUENCE public.pindahbarangsubinv_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.pindahbarangsubinv_id_seq OWNER TO pelni;
+ALTER TABLE public.pindahbarangsubinv_id_seq OWNER TO postgres;
 
 --
--- Name: pindahbarangsubinv_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: pindahbarangsubinv_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.pindahbarangsubinv_id_seq OWNED BY public.pindahbarangsubinv.id;
 
 
 --
--- Name: popenerimaan; Type: TABLE; Schema: public; Owner: pelni
+-- Name: popenerimaan; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.popenerimaan (
@@ -1268,10 +1372,10 @@ CREATE TABLE public.popenerimaan (
 );
 
 
-ALTER TABLE public.popenerimaan OWNER TO pelni;
+ALTER TABLE public.popenerimaan OWNER TO postgres;
 
 --
--- Name: popenerimaan_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: popenerimaan_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.popenerimaan_id_seq
@@ -1282,17 +1386,17 @@ CREATE SEQUENCE public.popenerimaan_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.popenerimaan_id_seq OWNER TO pelni;
+ALTER TABLE public.popenerimaan_id_seq OWNER TO postgres;
 
 --
--- Name: popenerimaan_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: popenerimaan_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.popenerimaan_id_seq OWNED BY public.popenerimaan.id;
 
 
 --
--- Name: popenerimaanio; Type: TABLE; Schema: public; Owner: pelni
+-- Name: popenerimaanio; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.popenerimaanio (
@@ -1310,10 +1414,10 @@ CREATE TABLE public.popenerimaanio (
 );
 
 
-ALTER TABLE public.popenerimaanio OWNER TO pelni;
+ALTER TABLE public.popenerimaanio OWNER TO postgres;
 
 --
--- Name: popenerimaanio_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: popenerimaanio_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.popenerimaanio_id_seq
@@ -1324,17 +1428,17 @@ CREATE SEQUENCE public.popenerimaanio_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.popenerimaanio_id_seq OWNER TO pelni;
+ALTER TABLE public.popenerimaanio_id_seq OWNER TO postgres;
 
 --
--- Name: popenerimaanio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: popenerimaanio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.popenerimaanio_id_seq OWNED BY public.popenerimaanio.id;
 
 
 --
--- Name: roles; Type: TABLE; Schema: public; Owner: pelni
+-- Name: roles; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.roles (
@@ -1345,10 +1449,10 @@ CREATE TABLE public.roles (
 );
 
 
-ALTER TABLE public.roles OWNER TO pelni;
+ALTER TABLE public.roles OWNER TO postgres;
 
 --
--- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.roles_id_seq
@@ -1359,10 +1463,10 @@ CREATE SEQUENCE public.roles_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.roles_id_seq OWNER TO pelni;
+ALTER TABLE public.roles_id_seq OWNER TO postgres;
 
 --
--- Name: roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.roles_id_seq OWNED BY public.roles.id;
@@ -1371,7 +1475,7 @@ ALTER SEQUENCE public.roles_id_seq OWNED BY public.roles.id;
 SET default_with_oids = false;
 
 --
--- Name: staging_sync_table; Type: TABLE; Schema: public; Owner: pelni
+-- Name: staging_sync_table; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.staging_sync_table (
@@ -1383,10 +1487,10 @@ CREATE TABLE public.staging_sync_table (
 );
 
 
-ALTER TABLE public.staging_sync_table OWNER TO pelni;
+ALTER TABLE public.staging_sync_table OWNER TO postgres;
 
 --
--- Name: staging_sync_table_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: staging_sync_table_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.staging_sync_table_id_seq
@@ -1397,17 +1501,17 @@ CREATE SEQUENCE public.staging_sync_table_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.staging_sync_table_id_seq OWNER TO pelni;
+ALTER TABLE public.staging_sync_table_id_seq OWNER TO postgres;
 
 --
--- Name: staging_sync_table_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: staging_sync_table_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.staging_sync_table_id_seq OWNED BY public.staging_sync_table.id;
 
 
 --
--- Name: stg_pelni_iot_int; Type: TABLE; Schema: public; Owner: pelni
+-- Name: stg_pelni_iot_int; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.stg_pelni_iot_int (
@@ -1449,14 +1553,17 @@ CREATE TABLE public.stg_pelni_iot_int (
     transfer_date timestamp without time zone,
     error_message character varying(240),
     process_id bigint,
-    transaction_number character varying(200)
+    transaction_number character varying(200),
+    to_org_id bigint,
+    "inout" character varying(10),
+    to_subinventory character varying(200)
 );
 
 
-ALTER TABLE public.stg_pelni_iot_int OWNER TO pelni;
+ALTER TABLE public.stg_pelni_iot_int OWNER TO postgres;
 
 --
--- Name: stg_pelni_item_onhand_int; Type: TABLE; Schema: public; Owner: pelni
+-- Name: stg_pelni_item_onhand_int; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.stg_pelni_item_onhand_int (
@@ -1485,10 +1592,10 @@ CREATE TABLE public.stg_pelni_item_onhand_int (
 );
 
 
-ALTER TABLE public.stg_pelni_item_onhand_int OWNER TO pelni;
+ALTER TABLE public.stg_pelni_item_onhand_int OWNER TO postgres;
 
 --
--- Name: stg_pelni_pr_int; Type: TABLE; Schema: public; Owner: pelni
+-- Name: stg_pelni_pr_int; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.stg_pelni_pr_int (
@@ -1570,14 +1677,15 @@ CREATE TABLE public.stg_pelni_pr_int (
     transfer_flag character varying(20),
     transfer_msg character varying(2000),
     transfer_date timestamp without time zone,
-    process_id bigint
+    process_id bigint,
+    req_number_segment1 character varying(20)
 );
 
 
-ALTER TABLE public.stg_pelni_pr_int OWNER TO pelni;
+ALTER TABLE public.stg_pelni_pr_int OWNER TO postgres;
 
 --
--- Name: stg_pelni_scm_misc_rcv_int; Type: TABLE; Schema: public; Owner: pelni
+-- Name: stg_pelni_scm_misc_rcv_int; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.stg_pelni_scm_misc_rcv_int (
@@ -1605,14 +1713,16 @@ CREATE TABLE public.stg_pelni_scm_misc_rcv_int (
     transfer_date timestamp without time zone,
     error_message character varying(240),
     process_id bigint,
-    transaction_number character varying(200)
+    transaction_number character varying(200),
+    type_misc character varying(20),
+    attribute2 character varying(150)
 );
 
 
-ALTER TABLE public.stg_pelni_scm_misc_rcv_int OWNER TO pelni;
+ALTER TABLE public.stg_pelni_scm_misc_rcv_int OWNER TO postgres;
 
 --
--- Name: stg_pelni_scm_moi_int; Type: TABLE; Schema: public; Owner: pelni
+-- Name: stg_pelni_scm_moi_int; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.stg_pelni_scm_moi_int (
@@ -1644,10 +1754,10 @@ CREATE TABLE public.stg_pelni_scm_moi_int (
 );
 
 
-ALTER TABLE public.stg_pelni_scm_moi_int OWNER TO pelni;
+ALTER TABLE public.stg_pelni_scm_moi_int OWNER TO postgres;
 
 --
--- Name: stg_pelni_scm_mot_int; Type: TABLE; Schema: public; Owner: pelni
+-- Name: stg_pelni_scm_mot_int; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.stg_pelni_scm_mot_int (
@@ -1677,14 +1787,15 @@ CREATE TABLE public.stg_pelni_scm_mot_int (
     transfer_date timestamp without time zone,
     error_message character varying(240),
     process_id bigint,
-    transaction_number character varying(200)
+    transaction_number character varying(200),
+    attribute2 character varying(150)
 );
 
 
-ALTER TABLE public.stg_pelni_scm_mot_int OWNER TO pelni;
+ALTER TABLE public.stg_pelni_scm_mot_int OWNER TO postgres;
 
 --
--- Name: stg_pelni_scm_rcv_int; Type: TABLE; Schema: public; Owner: pelni
+-- Name: stg_pelni_scm_rcv_int; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.stg_pelni_scm_rcv_int (
@@ -1718,14 +1829,17 @@ CREATE TABLE public.stg_pelni_scm_rcv_int (
     transfer_date timestamp without time zone,
     error_message character varying(240),
     process_id bigint,
-    po_number character varying(200)
+    po_number character varying(200),
+    transaction_number character varying(200),
+    creation_date date,
+    last_update_date date
 );
 
 
-ALTER TABLE public.stg_pelni_scm_rcv_int OWNER TO pelni;
+ALTER TABLE public.stg_pelni_scm_rcv_int OWNER TO postgres;
 
 --
--- Name: stg_pelni_scm_rcv_trx_int; Type: TABLE; Schema: public; Owner: pelni
+-- Name: stg_pelni_scm_rcv_trx_int; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.stg_pelni_scm_rcv_trx_int (
@@ -1752,14 +1866,18 @@ CREATE TABLE public.stg_pelni_scm_rcv_trx_int (
     transfer_flag character varying(1),
     transfer_date timestamp without time zone,
     error_message character varying(240),
-    process_id bigint
+    process_id bigint,
+    transaction_number character varying(200),
+    creation_date date,
+    last_update_date date,
+    attribute2 character varying(150)
 );
 
 
-ALTER TABLE public.stg_pelni_scm_rcv_trx_int OWNER TO pelni;
+ALTER TABLE public.stg_pelni_scm_rcv_trx_int OWNER TO postgres;
 
 --
--- Name: stg_pelni_ship_int; Type: TABLE; Schema: public; Owner: pelni
+-- Name: stg_pelni_ship_int; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.stg_pelni_ship_int (
@@ -1784,10 +1902,10 @@ CREATE TABLE public.stg_pelni_ship_int (
 );
 
 
-ALTER TABLE public.stg_pelni_ship_int OWNER TO pelni;
+ALTER TABLE public.stg_pelni_ship_int OWNER TO postgres;
 
 --
--- Name: stg_pelni_system_items_int; Type: TABLE; Schema: public; Owner: pelni
+-- Name: stg_pelni_system_items_int; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.stg_pelni_system_items_int (
@@ -1819,10 +1937,10 @@ CREATE TABLE public.stg_pelni_system_items_int (
 );
 
 
-ALTER TABLE public.stg_pelni_system_items_int OWNER TO pelni;
+ALTER TABLE public.stg_pelni_system_items_int OWNER TO postgres;
 
 --
--- Name: stg_pelni_wh_int; Type: TABLE; Schema: public; Owner: pelni
+-- Name: stg_pelni_wh_int; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.stg_pelni_wh_int (
@@ -1853,12 +1971,12 @@ CREATE TABLE public.stg_pelni_wh_int (
 );
 
 
-ALTER TABLE public.stg_pelni_wh_int OWNER TO pelni;
+ALTER TABLE public.stg_pelni_wh_int OWNER TO postgres;
 
 SET default_with_oids = true;
 
 --
--- Name: stokkapal; Type: TABLE; Schema: public; Owner: pelni
+-- Name: stokkapal; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.stokkapal (
@@ -1876,10 +1994,10 @@ CREATE TABLE public.stokkapal (
 );
 
 
-ALTER TABLE public.stokkapal OWNER TO pelni;
+ALTER TABLE public.stokkapal OWNER TO postgres;
 
 --
--- Name: stokkapal_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: stokkapal_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.stokkapal_id_seq
@@ -1890,10 +2008,10 @@ CREATE SEQUENCE public.stokkapal_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.stokkapal_id_seq OWNER TO pelni;
+ALTER TABLE public.stokkapal_id_seq OWNER TO postgres;
 
 --
--- Name: stokkapal_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: stokkapal_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.stokkapal_id_seq OWNED BY public.stokkapal.id;
@@ -1902,7 +2020,7 @@ ALTER SEQUENCE public.stokkapal_id_seq OWNED BY public.stokkapal.id;
 SET default_with_oids = false;
 
 --
--- Name: sync; Type: TABLE; Schema: public; Owner: pelni
+-- Name: sync; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.sync (
@@ -1920,10 +2038,10 @@ CREATE TABLE public.sync (
 );
 
 
-ALTER TABLE public.sync OWNER TO pelni;
+ALTER TABLE public.sync OWNER TO postgres;
 
 --
--- Name: sync_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: sync_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.sync_id_seq
@@ -1934,17 +2052,17 @@ CREATE SEQUENCE public.sync_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.sync_id_seq OWNER TO pelni;
+ALTER TABLE public.sync_id_seq OWNER TO postgres;
 
 --
--- Name: sync_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: sync_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.sync_id_seq OWNED BY public.sync.id;
 
 
 --
--- Name: sync_table; Type: TABLE; Schema: public; Owner: pelni
+-- Name: sync_table; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.sync_table (
@@ -1954,10 +2072,10 @@ CREATE TABLE public.sync_table (
 );
 
 
-ALTER TABLE public.sync_table OWNER TO pelni;
+ALTER TABLE public.sync_table OWNER TO postgres;
 
 --
--- Name: sync_table_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: sync_table_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.sync_table_id_seq
@@ -1968,10 +2086,10 @@ CREATE SEQUENCE public.sync_table_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.sync_table_id_seq OWNER TO pelni;
+ALTER TABLE public.sync_table_id_seq OWNER TO postgres;
 
 --
--- Name: sync_table_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: sync_table_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.sync_table_id_seq OWNED BY public.sync_table.id;
@@ -1980,7 +2098,7 @@ ALTER SEQUENCE public.sync_table_id_seq OWNED BY public.sync_table.id;
 SET default_with_oids = true;
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: pelni
+-- Name: users; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.users (
@@ -1998,10 +2116,10 @@ CREATE TABLE public.users (
 );
 
 
-ALTER TABLE public.users OWNER TO pelni;
+ALTER TABLE public.users OWNER TO postgres;
 
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.users_id_seq
@@ -2012,17 +2130,17 @@ CREATE SEQUENCE public.users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.users_id_seq OWNER TO pelni;
+ALTER TABLE public.users_id_seq OWNER TO postgres;
 
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- Name: voyages; Type: TABLE; Schema: public; Owner: pelni
+-- Name: voyages; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.voyages (
@@ -2033,10 +2151,10 @@ CREATE TABLE public.voyages (
 );
 
 
-ALTER TABLE public.voyages OWNER TO pelni;
+ALTER TABLE public.voyages OWNER TO postgres;
 
 --
--- Name: voyages_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: voyages_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.voyages_id_seq
@@ -2047,17 +2165,17 @@ CREATE SEQUENCE public.voyages_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.voyages_id_seq OWNER TO pelni;
+ALTER TABLE public.voyages_id_seq OWNER TO postgres;
 
 --
--- Name: voyages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: voyages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.voyages_id_seq OWNED BY public.voyages.id;
 
 
 --
--- Name: workflow; Type: TABLE; Schema: public; Owner: pelni
+-- Name: workflow; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.workflow (
@@ -2076,10 +2194,10 @@ CREATE TABLE public.workflow (
 );
 
 
-ALTER TABLE public.workflow OWNER TO pelni;
+ALTER TABLE public.workflow OWNER TO postgres;
 
 --
--- Name: workflow_id_seq; Type: SEQUENCE; Schema: public; Owner: pelni
+-- Name: workflow_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.workflow_id_seq
@@ -2090,342 +2208,356 @@ CREATE SEQUENCE public.workflow_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.workflow_id_seq OWNER TO pelni;
+ALTER TABLE public.workflow_id_seq OWNER TO postgres;
 
 --
--- Name: workflow_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pelni
+-- Name: workflow_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.workflow_id_seq OWNED BY public.workflow.id;
 
 
 --
--- Name: account id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: account id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.account ALTER COLUMN id SET DEFAULT nextval('public.account_id_seq'::regclass);
 
 
 --
--- Name: activitylog id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: activitylog id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.activitylog ALTER COLUMN id SET DEFAULT nextval('public.activitylog_id_seq'::regclass);
 
 
 --
--- Name: administratoradministrator id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: administratoradministrator id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.administratoradministrator ALTER COLUMN id SET DEFAULT nextval('public.administratoradministrator_id_seq'::regclass);
 
 
 --
--- Name: administratorgroupaccess id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: administratorgroupaccess id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.administratorgroupaccess ALTER COLUMN id SET DEFAULT nextval('public.administratorgroupaccess_id_seq'::regclass);
 
 
 --
--- Name: administratormenu id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: administratormenu id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.administratormenu ALTER COLUMN id SET DEFAULT nextval('public.administratormenu_id_seq'::regclass);
 
 
 --
--- Name: applicationparameter id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: applicationparameter id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.applicationparameter ALTER COLUMN id SET DEFAULT nextval('public.applicationparameter_id_seq'::regclass);
 
 
 --
--- Name: approver id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: approver id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.approver ALTER COLUMN id SET DEFAULT nextval('public.approver_id_seq'::regclass);
 
 
 --
--- Name: item id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: item id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.item ALTER COLUMN id SET DEFAULT nextval('public.item_id_seq'::regclass);
 
 
 --
--- Name: itempenerimaanbarang id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: item_onhand ID; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.item_onhand ALTER COLUMN "ID" SET DEFAULT nextval('public.item_onhand_id_seq'::regclass);
+
+
+--
+-- Name: itempenerimaanbarang id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.itempenerimaanbarang ALTER COLUMN id SET DEFAULT nextval('public.itempenerimaanbarang_id_seq'::regclass);
 
 
 --
--- Name: itempenerimaanbarangio id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: itempenerimaanbarangio id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.itempenerimaanbarangio ALTER COLUMN id SET DEFAULT nextval('public.itempenerimaanbarangio_id_seq'::regclass);
 
 
 --
--- Name: itempenerimaanmakanan id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: itempenerimaanmakanan id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.itempenerimaanmakanan ALTER COLUMN id SET DEFAULT nextval('public.itempenerimaanmakanan_id_seq'::regclass);
 
 
 --
--- Name: itempenggunaanbarang id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: itempenggunaanbarang id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.itempenggunaanbarang ALTER COLUMN id SET DEFAULT nextval('public.itempenggunaanbarang_id_seq'::regclass);
 
 
 --
--- Name: itempenggunaanmakanan id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: itempenggunaanmakanan id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.itempenggunaanmakanan ALTER COLUMN id SET DEFAULT nextval('public.itempenggunaanmakanan_id_seq'::regclass);
 
 
 --
--- Name: itempermintaanbarang id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: itempermintaanbarang id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.itempermintaanbarang ALTER COLUMN id SET DEFAULT nextval('public.itempermintaanbarang_id_seq'::regclass);
 
 
 --
--- Name: itempindahbarangio id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: itempindahbarangio id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.itempindahbarangio ALTER COLUMN id SET DEFAULT nextval('public.itempindahbarangio_id_seq'::regclass);
 
 
 --
--- Name: itempindahbarangsubinv id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: itempindahbarangsubinv id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.itempindahbarangsubinv ALTER COLUMN id SET DEFAULT nextval('public.itempindahbarangsubinv_id_seq'::regclass);
 
 
 --
--- Name: itempopenerimaan id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: itempopenerimaan id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.itempopenerimaan ALTER COLUMN id SET DEFAULT nextval('public.itempopenerimaan_id_seq'::regclass);
 
 
 --
--- Name: itempopenerimaanio id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: itempopenerimaanio id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.itempopenerimaanio ALTER COLUMN id SET DEFAULT nextval('public.itempopenerimaanio_id_seq'::regclass);
 
 
 --
--- Name: kapal id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: kapal id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.kapal ALTER COLUMN id SET DEFAULT nextval('public.kapal_id_seq'::regclass);
 
 
 --
--- Name: loginlog id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: loginlog id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.loginlog ALTER COLUMN id SET DEFAULT nextval('public.loginlog_id_seq'::regclass);
 
 
 --
--- Name: lokasiitem id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: lokasiitem id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.lokasiitem ALTER COLUMN id SET DEFAULT nextval('public.lokasiitem_id_seq'::regclass);
 
 
 --
--- Name: notifications id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: notifications id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.notifications ALTER COLUMN id SET DEFAULT nextval('public.notifications_id_seq'::regclass);
 
 
 --
--- Name: penerimaanbarang id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: penerimaanbarang id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.penerimaanbarang ALTER COLUMN id SET DEFAULT nextval('public.penerimaanbarang_id_seq'::regclass);
 
 
 --
--- Name: penerimaanbarangio id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: penerimaanbarangio id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.penerimaanbarangio ALTER COLUMN id SET DEFAULT nextval('public.penerimaanbarangio_id_seq'::regclass);
 
 
 --
--- Name: penerimaanmakanan id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: penerimaanmakanan id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.penerimaanmakanan ALTER COLUMN id SET DEFAULT nextval('public.penerimaanmakanan_id_seq'::regclass);
 
 
 --
--- Name: penggunaanbarang id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: penggunaanbarang id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.penggunaanbarang ALTER COLUMN id SET DEFAULT nextval('public.penggunaanbarang_id_seq'::regclass);
 
 
 --
--- Name: penggunaanmakanan id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: penggunaanmakanan id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.penggunaanmakanan ALTER COLUMN id SET DEFAULT nextval('public.penggunaanmakanan_id_seq'::regclass);
 
 
 --
--- Name: permintaanbarang id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: permintaanbarang id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.permintaanbarang ALTER COLUMN id SET DEFAULT nextval('public.permintaanbarang_id_seq'::regclass);
 
 
 --
--- Name: pindahbarangio id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: pindahbarangio id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.pindahbarangio ALTER COLUMN id SET DEFAULT nextval('public.pindahbarangio_id_seq'::regclass);
 
 
 --
--- Name: pindahbarangsubinv id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: pindahbarangsubinv id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.pindahbarangsubinv ALTER COLUMN id SET DEFAULT nextval('public.pindahbarangsubinv_id_seq'::regclass);
 
 
 --
--- Name: popenerimaan id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: popenerimaan id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.popenerimaan ALTER COLUMN id SET DEFAULT nextval('public.popenerimaan_id_seq'::regclass);
 
 
 --
--- Name: popenerimaanio id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: popenerimaanio id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.popenerimaanio ALTER COLUMN id SET DEFAULT nextval('public.popenerimaanio_id_seq'::regclass);
 
 
 --
--- Name: roles id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: roles id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.roles ALTER COLUMN id SET DEFAULT nextval('public.roles_id_seq'::regclass);
 
 
 --
--- Name: staging_sync_table id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: staging_sync_table id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.staging_sync_table ALTER COLUMN id SET DEFAULT nextval('public.staging_sync_table_id_seq'::regclass);
 
 
 --
--- Name: stokkapal id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: stokkapal id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.stokkapal ALTER COLUMN id SET DEFAULT nextval('public.stokkapal_id_seq'::regclass);
 
 
 --
--- Name: sync id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: sync id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.sync ALTER COLUMN id SET DEFAULT nextval('public.sync_id_seq'::regclass);
 
 
 --
--- Name: sync_table id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: sync_table id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.sync_table ALTER COLUMN id SET DEFAULT nextval('public.sync_table_id_seq'::regclass);
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
 
 --
--- Name: voyages id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: voyages id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.voyages ALTER COLUMN id SET DEFAULT nextval('public.voyages_id_seq'::regclass);
 
 
 --
--- Name: workflow id; Type: DEFAULT; Schema: public; Owner: pelni
+-- Name: workflow id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.workflow ALTER COLUMN id SET DEFAULT nextval('public.workflow_id_seq'::regclass);
 
 
+--
+-- Data for Name: account; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.account VALUES (1, 'Beban Perlengkapan Kapal', 'Beban Perlengkapan Kapal', NULL, 51090106);
+INSERT INTO public.account VALUES (2, 'Beban Bahan Bakar', 'Beban Bahan Bakar', NULL, 51040101);
+INSERT INTO public.account VALUES (3, 'Beban Pelumas', 'Beban Pelumas', '2018-08-24 10:30:57.428909', 51040103);
+INSERT INTO public.account VALUES (4, 'Beban Suku Cadang Kapal', 'Beban Suku Cadang Kapal', '2018-08-24 10:30:57.428909', 51090101);
+INSERT INTO public.account VALUES (5, 'Beban Makanan Penumpang', 'Beban Makanan Penumpang', '2018-08-24 10:30:57.428909', 51020101);
+INSERT INTO public.account VALUES (6, 'Beban Cetak Tiket/Dokumen', 'Beban Cetak Tiket/Dokumen', '2018-08-24 10:30:57.428909', 52030104);
+
 
 --
--- Data for Name: administratoradministrator; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: activitylog; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: administratoradministrator; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO public.administratoradministrator VALUES (1, 1, 'root', '$2y$12$U5BsEAXwbNHZgvSZx.Bqre8aXUgzLzNShrJ.3hXQZMcFSQh/unDP2', 'admin@admin.id', 'Administrator', 'NULL', NULL);
 
 
 --
--- Data for Name: administratorgroupaccess; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: administratorgroupaccess; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.administratorgroupaccess VALUES (45, 1, 2, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (46, 1, 4, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (47, 1, 6, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (48, 1, 10, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (49, 1, 12, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (50, 1, 14, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (51, 1, 16, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (52, 1, 18, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (53, 1, 20, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (54, 1, 24, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (55, 1, 26, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (56, 1, 28, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (57, 1, 30, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (58, 1, 32, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (59, 1, 34, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (60, 1, 36, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (61, 1, 38, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (62, 1, 40, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (63, 1, 46, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (64, 1, 47, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (65, 1, 48, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (66, 1, 49, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (67, 1, 50, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (68, 1, 51, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (69, 1, 52, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (70, 1, 53, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (71, 1, 54, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (72, 1, 56, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (73, 1, 55, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (74, 1, 58, NULL);
-INSERT INTO public.administratorgroupaccess VALUES (75, 1, 59, NULL);
+
+INSERT INTO public.administratorgroupaccess VALUES (32, 1, 34, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (33, 1, 30, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (34, 1, 46, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (35, 1, 16, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (36, 1, 12, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (37, 1, 60, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (38, 1, 36, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (39, 1, 2, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (40, 1, 40, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (41, 1, 38, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (42, 1, 59, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (43, 1, 58, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (44, 1, 54, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (45, 1, 52, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (46, 1, 51, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (47, 1, 50, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (48, 1, 49, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (49, 1, 48, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (50, 1, 10, '2018-09-26 09:49:25.853578');
+INSERT INTO public.administratorgroupaccess VALUES (51, 1, 18, '2018-09-26 09:49:25.853578');
 
 
 --
--- Data for Name: administratormenu; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: administratormenu; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO public.administratormenu VALUES (1, 'Master', '', 0, 'fa fa-industry', 'NULL', 1, 1, NULL);
@@ -2462,399 +2594,615 @@ INSERT INTO public.administratormenu VALUES (30, 'Sub-Inventory', 'administrator
 INSERT INTO public.administratormenu VALUES (34, 'Stok Kapal', 'administrator/stokkapal', 1, 'fa fa-pie-chart', 'NULL', 21, 1, NULL);
 INSERT INTO public.administratormenu VALUES (41, 'Report', '', 0, 'fa fa-gear', 'NULL', 2, 1, NULL);
 INSERT INTO public.administratormenu VALUES (18, 'Rekapitulasi Layanan Makan', 'administrator/rekapitulasimakan', 41, 'fa fa-bookmark-o', 'NULL', 24, 1, NULL);
-
-
-
-
-
-
-
-
-
-
+INSERT INTO public.administratormenu VALUES (60, 'Sync Logs', 'administrator/sync', 42, 'fa fa-music', NULL, 33, 1, '2018-09-26 09:38:37.08756');
 
 
 --
--- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: applicationparameter; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.roles VALUES (1, 'administrator', NULL, 5);
+INSERT INTO public.applicationparameter VALUES (1, 'LAST_LOT_NUMBER', '5', '2018-09-28 08:54:57.557238');
 
 
 --
--- Data for Name: staging_sync_table; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: approver; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: stg_pelni_iot_int; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: item; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: stg_pelni_item_onhand_int; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: item_onhand; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: stg_pelni_pr_int; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: itempenerimaanbarang; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+--
+-- Data for Name: itempenerimaanbarangio; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+--
+-- Data for Name: itempenerimaanmakanan; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: stg_pelni_scm_misc_rcv_int; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: itempenggunaanbarang; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: stg_pelni_scm_moi_int; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: itempenggunaanmakanan; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: stg_pelni_scm_mot_int; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: itempermintaanbarang; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+--
+-- Data for Name: itempindahbarangio; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+--
+-- Data for Name: itempindahbarangsubinv; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: stg_pelni_scm_rcv_int; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: itempopenerimaan; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: stg_pelni_scm_rcv_trx_int; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: itempopenerimaanio; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+--
+-- Data for Name: kapal; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+--
+-- Data for Name: loginlog; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+--
+-- Data for Name: logsynckapal; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: stg_pelni_ship_int; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: logsyncoracle; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: stg_pelni_system_items_int; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: lokasiitem; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: stg_pelni_wh_int; Type: TABLE DATA; Schema: public; Owner: pelni
---
-
-
-
-
-
-
-
---
--- Data for Name: sync_table; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: lotnumber; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: pelni
+-- Data for Name: notifications; Type: TABLE DATA; Schema: public; Owner: postgres
 --
-
-INSERT INTO public.users VALUES (1, 'Administrator', 1, 5, 'sioado', '$2y$12$U5BsEAXwbNHZgvSZx.Bqre8aXUgzLzNShrJ.3hXQZMcFSQh/unDP2', NULL, '', 'HO', 'Janang', '123.456.987.0');
-
-
 
 
 
 --
--- Name: account_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Data for Name: penerimaanbarang; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: penerimaanbarangio; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: penerimaanmakanan; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: penggunaanbarang; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+--
+-- Data for Name: penggunaanmakanan; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+--
+-- Data for Name: permintaanbarang; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: pindahbarangio; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: pindahbarangsubinv; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+--
+-- Data for Name: popenerimaan; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: popenerimaanio; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+--
+-- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.roles VALUES (1, 'administrator', NULL, 177);
+
+
+--
+-- Data for Name: staging_sync_table; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.staging_sync_table VALUES (3, 'pelni_scm_pr_to_po_v
+', 'popenerimaan', NULL, '2001-01-01 01:01:01');
+INSERT INTO public.staging_sync_table VALUES (4, 'pelni_scm_po_lines_v', 'itempopenerimaan', NULL, '2001-01-01 01:01:01');
+INSERT INTO public.staging_sync_table VALUES (2, 'pelni_scm_io_v
+', 'kapal', NULL, '2001-01-01 01:01:01');
+INSERT INTO public.staging_sync_table VALUES (5, 'pelni_iot_v', 'popenerimaanio', NULL, '2001-01-01 01:01:01');
+INSERT INTO public.staging_sync_table VALUES (6, 'pelni_iot_v', 'itempopenerimaanio', NULL, '2001-01-01 01:01:01');
+INSERT INTO public.staging_sync_table VALUES (7, 'pelni_voyage_v', 'voyages', NULL, '2001-01-01 01:01:01');
+INSERT INTO public.staging_sync_table VALUES (8, 'pelni_scm_item_onhand_v', 'item_onhand', NULL, '2001-01-01 01:01:01');
+INSERT INTO public.staging_sync_table VALUES (9, 'pelni_scm_subinv_v', 'lokasiitem', NULL, '2001-01-01 01:01:01');
+INSERT INTO public.staging_sync_table VALUES (1, 'pelni_scm_items_v', 'item', NULL, '2018-09-19 00:00:00');
+
+
+--
+-- Data for Name: stg_pelni_iot_int; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: stg_pelni_item_onhand_int; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: stg_pelni_pr_int; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: stg_pelni_scm_misc_rcv_int; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: stg_pelni_scm_moi_int; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: stg_pelni_scm_mot_int; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: stg_pelni_scm_rcv_int; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: stg_pelni_scm_rcv_trx_int; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+--
+-- Data for Name: stg_pelni_ship_int; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: stg_pelni_system_items_int; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: stg_pelni_wh_int; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: stokkapal; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+--
+-- Data for Name: sync; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+
+--
+-- Data for Name: sync_table; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.sync_table VALUES (3, 'users', '2001-01-01 01:01:01');
+INSERT INTO public.sync_table VALUES (6, 'administratorgroupaccess', '2001-01-01 01:01:01');
+INSERT INTO public.sync_table VALUES (7, 'roles', '2001-01-01 01:01:01');
+INSERT INTO public.sync_table VALUES (9, 'popenerimaanio', '2001-01-01 01:01:01');
+INSERT INTO public.sync_table VALUES (4, 'lokasiitem', '2001-01-01 01:01:01');
+INSERT INTO public.sync_table VALUES (1, 'item', '2001-01-01 01:01:01');
+INSERT INTO public.sync_table VALUES (5, 'administratormenu
+', '2001-01-01 01:01:01');
+INSERT INTO public.sync_table VALUES (2, 'kapal', '2001-01-01 01:01:01');
+INSERT INTO public.sync_table VALUES (8, 'popenerimaan', '2001-01-01 01:01:01');
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.users VALUES (4, 'daniel', 1, 177, 'Daniel', '$2y$12$m23NJrMdhbY0/QMzsDMy7ONiGFCjPt60EktL/5KJPt2kNgmGgvG0K', '2018-09-14 09:32:04.611558', '', 'KAPAL', 'Pekerja', '1122334455');
+INSERT INTO public.users VALUES (5, 'agung', 1, 177, 'agung', '$2y$12$KSfXn1EOpEpQgIqbh01KJuASYmRDmjmS3cWt.FD5b0qkvM6OKg6z.', '2018-09-14 09:33:38.612117', '', 'KAPAL', 'pekerja', '223344');
+INSERT INTO public.users VALUES (3, 'daniel', 2, 177, 'daniel', '$2y$12$d9ntpXzLyAwjpTwb3/J9dexU7AAjBu2/EAqTXNDDRkDMt7fIgorHK', '2018-09-06 09:16:07.749226', '', 'KAPAL', 'pekerja', '12345');
+INSERT INTO public.users VALUES (1, 'Administrator', 1, 177, 'sioado', '$2y$12$U5BsEAXwbNHZgvSZx.Bqre8aXUgzLzNShrJ.3hXQZMcFSQh/unDP2', NULL, '', 'KAPAL', 'Janang', '123.456.987.0');
+INSERT INTO public.users VALUES (2, 'Seth Setiadha', 1, 177, 'sethsetiadha', '$2y$12$6W0cF7UXB23Xq7qP3CHco.fVYJPjlTqfUqJ5z2oNUSoVGdbxV8rzC', NULL, '', 'KAPAL', 'TK. Nahkoda', '23423');
+
+
+--
+-- Data for Name: voyages; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+
+--
+-- Data for Name: workflow; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Name: account_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.account_id_seq', 2, true);
 
 
 --
--- Name: activitylog_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: activitylog_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.activitylog_id_seq', 31, true);
+SELECT pg_catalog.setval('public.activitylog_id_seq', 80, true);
 
 
 --
--- Name: administratoradministrator_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: administratoradministrator_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.administratoradministrator_id_seq', 1, false);
 
 
 --
--- Name: administratorgroupaccess_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: administratorgroupaccess_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.administratorgroupaccess_id_seq', 30, true);
+SELECT pg_catalog.setval('public.administratorgroupaccess_id_seq', 51, true);
 
 
 --
--- Name: administratormenu_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: administratormenu_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.administratormenu_id_seq', 1, false);
 
 
 --
--- Name: applicationparameter_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: applicationparameter_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.applicationparameter_id_seq', 1, false);
+SELECT pg_catalog.setval('public.applicationparameter_id_seq', 1, true);
 
 
 --
--- Name: approver_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: approver_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.approver_id_seq', 1, false);
 
 
 --
--- Name: item_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: item_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.item_id_seq', 10, true);
-
-
---
--- Name: itempenerimaanbarang_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
---
-
-SELECT pg_catalog.setval('public.itempenerimaanbarang_id_seq', 19, true);
+SELECT pg_catalog.setval('public.item_id_seq', 1, false);
 
 
 --
--- Name: itempenerimaanbarangio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: item_onhand_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.item_onhand_id_seq', 1, false);
+
+
+--
+-- Name: itempenerimaanbarang_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.itempenerimaanbarang_id_seq', 23, true);
+
+
+--
+-- Name: itempenerimaanbarangio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.itempenerimaanbarangio_id_seq', 6, true);
 
 
 --
--- Name: itempenerimaanmakanan_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: itempenerimaanmakanan_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.itempenerimaanmakanan_id_seq', 5, true);
-
-
---
--- Name: itempenggunaanbarang_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
---
-
-SELECT pg_catalog.setval('public.itempenggunaanbarang_id_seq', 12, true);
+SELECT pg_catalog.setval('public.itempenerimaanmakanan_id_seq', 9, true);
 
 
 --
--- Name: itempenggunaanmakanan_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: itempenggunaanbarang_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.itempenggunaanmakanan_id_seq', 5, true);
-
-
---
--- Name: itempermintaanbarang_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
---
-
-SELECT pg_catalog.setval('public.itempermintaanbarang_id_seq', 15, true);
+SELECT pg_catalog.setval('public.itempenggunaanbarang_id_seq', 21, true);
 
 
 --
--- Name: itempindahbarangio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: itempenggunaanmakanan_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.itempindahbarangio_id_seq', 18, true);
-
-
---
--- Name: itempindahbarangsubinv_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
---
-
-SELECT pg_catalog.setval('public.itempindahbarangsubinv_id_seq', 2, true);
+SELECT pg_catalog.setval('public.itempenggunaanmakanan_id_seq', 6, true);
 
 
 --
--- Name: itempopenerimaan_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: itempermintaanbarang_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.itempermintaanbarang_id_seq', 27, true);
+
+
+--
+-- Name: itempindahbarangio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.itempindahbarangio_id_seq', 30, true);
+
+
+--
+-- Name: itempindahbarangsubinv_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.itempindahbarangsubinv_id_seq', 4, true);
+
+
+--
+-- Name: itempopenerimaan_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.itempopenerimaan_id_seq', 2, true);
 
 
 --
--- Name: itempopenerimaanio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: itempopenerimaanio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.itempopenerimaanio_id_seq', 2, true);
 
 
 --
--- Name: kapal_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: kapal_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.kapal_id_seq', 1, false);
 
 
 --
--- Name: loginlog_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: loginlog_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.loginlog_id_seq', 47, true);
-
-
---
--- Name: lokasiitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
---
-
-SELECT pg_catalog.setval('public.lokasiitem_id_seq', 1, true);
+SELECT pg_catalog.setval('public.loginlog_id_seq', 74, true);
 
 
 --
--- Name: notifications_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: lokasiitem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.lokasiitem_id_seq', 4, true);
+
+
+--
+-- Name: notifications_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.notifications_id_seq', 1, false);
 
 
 --
--- Name: penerimaanbarang_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: penerimaanbarang_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.penerimaanbarang_id_seq', 14, true);
 
 
 --
--- Name: penerimaanbarangio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: penerimaanbarangio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.penerimaanbarangio_id_seq', 6, true);
 
 
 --
--- Name: penerimaanmakanan_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: penerimaanmakanan_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.penerimaanmakanan_id_seq', 2, true);
 
 
 --
--- Name: penggunaanbarang_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: penggunaanbarang_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.penggunaanbarang_id_seq', 13, true);
 
 
 --
--- Name: penggunaanmakanan_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: penggunaanmakanan_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.penggunaanmakanan_id_seq', 5, true);
 
 
 --
--- Name: permintaanbarang_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: permintaanbarang_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.permintaanbarang_id_seq', 17, true);
 
 
 --
--- Name: pindahbarangio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: pindahbarangio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.pindahbarangio_id_seq', 7, true);
 
 
 --
--- Name: pindahbarangsubinv_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: pindahbarangsubinv_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.pindahbarangsubinv_id_seq', 1, true);
 
 
 --
--- Name: popenerimaan_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: popenerimaan_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.popenerimaan_id_seq', 1, true);
 
 
 --
--- Name: popenerimaanio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: popenerimaanio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.popenerimaanio_id_seq', 1, true);
 
 
 --
--- Name: roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.roles_id_seq', 2, true);
 
 
 --
--- Name: staging_sync_table_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: staging_sync_table_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.staging_sync_table_id_seq', 1, false);
 
 
 --
--- Name: stokkapal_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: stokkapal_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.stokkapal_id_seq', 35, true);
+SELECT pg_catalog.setval('public.stokkapal_id_seq', 39, true);
 
 
 --
--- Name: sync_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: sync_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.sync_id_seq', 35, true);
 
 
 --
--- Name: sync_table_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: sync_table_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.sync_table_id_seq', 1, false);
+SELECT pg_catalog.setval('public.sync_table_id_seq', 9, true);
 
 
 --
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.users_id_seq', 4, true);
 
 
 --
--- Name: voyages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: voyages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.voyages_id_seq', 1, false);
 
 
 --
--- Name: workflow_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pelni
+-- Name: workflow_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.workflow_id_seq', 32, true);
+SELECT pg_catalog.setval('public.workflow_id_seq', 54, true);
 
 
 --
--- Name: account PRIMARY; Type: CONSTRAINT; Schema: public; Owner: pelni
+-- Name: account PRIMARY; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.account
@@ -2862,7 +3210,31 @@ ALTER TABLE ONLY public.account
 
 
 --
--- Name: staging_sync_table staging_sync_table_pkey; Type: CONSTRAINT; Schema: public; Owner: pelni
+-- Name: item_onhand item_onhand_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.item_onhand
+    ADD CONSTRAINT item_onhand_pkey PRIMARY KEY ("ID");
+
+
+--
+-- Name: logsynckapal logsynckapal_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.logsynckapal
+    ADD CONSTRAINT logsynckapal_pkey PRIMARY KEY ("ID");
+
+
+--
+-- Name: logsyncoracle logsyncoracle_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.logsyncoracle
+    ADD CONSTRAINT logsyncoracle_pkey PRIMARY KEY ("ID");
+
+
+--
+-- Name: staging_sync_table staging_sync_table_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.staging_sync_table
@@ -2870,7 +3242,7 @@ ALTER TABLE ONLY public.staging_sync_table
 
 
 --
--- Name: sync sync_pkey; Type: CONSTRAINT; Schema: public; Owner: pelni
+-- Name: sync sync_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.sync
@@ -2878,62 +3250,46 @@ ALTER TABLE ONLY public.sync
 
 
 --
--- Name: email_admin_UNIQUE; Type: INDEX; Schema: public; Owner: pelni
+-- Name: email_admin_UNIQUE; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE UNIQUE INDEX "email_admin_UNIQUE" ON public.administratoradministrator USING btree (email);
 
 
 --
--- Name: poNumber; Type: INDEX; Schema: public; Owner: pelni
+-- Name: poNumber; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE UNIQUE INDEX "poNumber" ON public.popenerimaan USING btree ("poNumber");
 
 
 --
--- Name: receiptNumber; Type: INDEX; Schema: public; Owner: pelni
+-- Name: receiptNumber; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE UNIQUE INDEX "receiptNumber" ON public.penerimaanbarang USING btree ("receiptNumber");
 
 
 --
--- Name: username_UNIQUE; Type: INDEX; Schema: public; Owner: pelni
+-- Name: username_UNIQUE; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE UNIQUE INDEX "username_UNIQUE" ON public.users USING btree (username);
 
 
 --
--- Name: username_admin_UNIQUE; Type: INDEX; Schema: public; Owner: pelni
+-- Name: username_admin_UNIQUE; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE UNIQUE INDEX "username_admin_UNIQUE" ON public.administratoradministrator USING btree (username);
 
 
 --
--- Name: variableName_UNIQUE; Type: INDEX; Schema: public; Owner: pelni
+-- Name: variableName_UNIQUE; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE UNIQUE INDEX "variableName_UNIQUE" ON public.applicationparameter USING btree ("variableName");
 
-
---
--- Name: SCHEMA public; Type: ACL; Schema: -; Owner: pelni
---
-
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM pelni;
-GRANT ALL ON SCHEMA public TO pelni;
-GRANT ALL ON SCHEMA public TO PUBLIC;
-
-INSERT INTO public.staging_sync_table (id, staging_table, target_table, target_model, last_sync) VALUES (1, 'pelni_scm_items_v', 'item', null, '2018-09-25 10:42:41.000000');
-INSERT INTO public.staging_sync_table (id, staging_table, target_table, target_model, last_sync) VALUES (2, 'pelni_scm_io_v
-', 'kapal', null, null);
-INSERT INTO public.staging_sync_table (id, staging_table, target_table, target_model, last_sync) VALUES (3, 'pelni_scm_pr_to_po_v
-', 'popenerimaan', null, null);
-INSERT INTO public.staging_sync_table (id, staging_table, target_table, target_model, last_sync) VALUES (4, 'pelni_scm_po_lines_v', 'itempopenerimaanio', null, null);
 
 --
 -- PostgreSQL database dump complete
