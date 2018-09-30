@@ -10,6 +10,7 @@ return array(
     'Src\\Helper\\Helper' => $baseDir . '/src/Helper/Helper.php',
     'Src\\PatchDatabaseCommand' => $baseDir . '/src/PatchDatabaseCommand.php',
     'Src\\SetupApplicationCommand' => $baseDir . '/src/SetupApplicationCommand.php',
+    'Src\\SetupApplicationKapalCommand' => $baseDir . '/src/SetupApplicationKapalCommand.php',
     'Src\\SetupServices' => $baseDir . '/src/SetupServices.php',
     'Src\\databaseConnection' => $baseDir . '/src/PatchDatabaseCommand.php',
     'Symfony\\Component\\Console\\Application' => $vendorDir . '/symfony/console/Application.php',

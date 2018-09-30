@@ -39,6 +39,7 @@ class ComposerStaticInitb8c6635a35bdc75228bb47a2018e0e11
         'Src\\Helper\\Helper' => __DIR__ . '/../..' . '/src/Helper/Helper.php',
         'Src\\PatchDatabaseCommand' => __DIR__ . '/../..' . '/src/PatchDatabaseCommand.php',
         'Src\\SetupApplicationCommand' => __DIR__ . '/../..' . '/src/SetupApplicationCommand.php',
+        'Src\\SetupApplicationKapalCommand' => __DIR__ . '/../..' . '/src/SetupApplicationKapalCommand.php',
         'Src\\SetupServices' => __DIR__ . '/../..' . '/src/SetupServices.php',
         'Src\\databaseConnection' => __DIR__ . '/../..' . '/src/PatchDatabaseCommand.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',

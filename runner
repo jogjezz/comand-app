@@ -11,6 +11,7 @@ use Symfony\Component\Console\Application;
 
 $app = new Application('Console App', 'v1.0.0');
 $app->add(new \Src\SetupApplicationCommand());
+$app->add(new \Src\SetupApplicationKapalCommand());
 $app->add(new \Src\PatchDatabaseCommand());
 $app->add(new \Src\SetupServices());
 $app->run();

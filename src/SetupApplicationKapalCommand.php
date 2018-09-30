@@ -15,7 +15,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class SetupApplicationCommand extends Command
+class SetupApplicationKapalCommand extends Command
 {
     private $urlRepo, $usernameRepo, $passwordRepo;
     private $targetFolder = "/var/www/html/pelni/";
@@ -29,7 +29,7 @@ class SetupApplicationCommand extends Command
     public function configure()
     {
         $this->setName('install-aplication')
-            ->setDescription('Install Aplication PELNI as HO target.')
+            ->setDescription('Install Aplication PELNI as KAPAL target.')
             ->setHelp('This allow you to pull latest source from master from your git Repositry')
             ->setHelp("example commad install-ho http://dekalitz.gitlabl.com/ username_repo password_repo url_repository")
             ->addArgument("repository", InputArgument::REQUIRED, "url repository")
@@ -73,7 +73,7 @@ class SetupApplicationCommand extends Command
 
     protected function createEnv()
     {
-        $fileGetContet = file_get_contents(__DIR__ . "/dumper/ho");
+        $fileGetContet = file_get_contents(__DIR__ . "/dumper/kapal");
         $envLaravel = file_get_contents(__DIR__ . "/dumper/.env");
         $targetDir = "/var/www/html/";
         chdir($targetDir);
