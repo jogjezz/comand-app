@@ -4,11 +4,12 @@ $environment = [
     "development" => [
         "debug" => true,
         "APLICATION_TYPE" => "HO",
+        "KAPAL_ID" => "",
         "HEAD_URL" => [
-            "URL" => "http://localhost",
-            "PORT" => "8090"
+           "URL" => "http://10.1.0.183",
+           "PORT" => "80"
         ],
-        "HEAD_OFFICE_URL" => "http://localhost:8090/api",
+        "HEAD_OFFICE_URL" => "http://10.1.0.183/api",
         "redis" => [
             "host" => "127.0.0.1",
             "port" => 6379,
@@ -16,10 +17,10 @@ $environment = [
             "read_write_timeout" => 0
         ],
         "oracle" => [
-                   "host" => "10.1.0.184:1541/SCMDEV",
-                   "username" => "apps",
-                   "password" => "pelapps1812",
-               ],
+            "host" => "10.1.0.184:1541/SCMDEV",
+            "username" => "apps",
+            "password" => "pelapps1812",
+        ],
         "database" => [
             "driver" => "pgsql",
             "host" => "localhost",
@@ -44,12 +45,9 @@ $environment = [
 
     ],
     "production" => [
-    "APLICATION_TYPE" => "HO",
-            "HEAD_URL" => [
-                "URL" => "http://localhost",
-                "PORT" => "8090"
-            ],
+        "KAPAL_ID" => "",
         "debug" => false,
+        "KAPAL_ID" => "",
         "database" => [
             "driver" => "pgsql",
             "host" => "localhost",
@@ -61,11 +59,11 @@ $environment = [
             "collation" => "utf8_unicode_ci",
             "prefix" => "",
         ],
-     "oracle" => [
-                "host" => "10.1.0.184:1541/SCMDEV",
-                "username" => "apps",
-                "password" => "pelapps1812",
-            ],
+        "oracle" => [
+            "host" => "10.1.0.184:1541/SCMDEV",
+            "username" => "apps",
+            "password" => "pelapps1812",
+        ],
         "mail" => [
             "MAIL_HOST" => "",
             "MAIL_USERNAME" => "",
