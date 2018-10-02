@@ -64,6 +64,8 @@ class SetupApplicationKapalCommand extends Command
             echo "somthing happen pelease check your command", PHP_EOL;
             die();
         }
+
+        exec("apt-get install php-psql");
         exec("composer install");
         exec("composer dump-autoload -o");//        exec("composer dump-autoload -o");
         exec("chmod -R 777 /var/www/html/storage");//        exec("composer dump-autoload -o");
@@ -84,6 +86,7 @@ class SetupApplicationKapalCommand extends Command
         file_put_contents("env.php", $fileGetContet);
         chdir("/");
     }
+
     private function setUpNginx()
     {
         $fileGetContet = file_get_contents(__DIR__ . "/dumper/default");
@@ -94,6 +97,7 @@ class SetupApplicationKapalCommand extends Command
         chdir("/");
 
     }
+
     private function getReposistory()
     {
         $gitString = $this->urlRepo;
