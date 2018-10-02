@@ -17,7 +17,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class SetupApplicationKapalCommand extends Command
 {
-    private $urlRepo, $usernameRepo, $passwordRepo;
+    private $urlRepo, $usernameRepo, $passwordRepo, $kapalId;
     private $targetFolder = "/var/www/html/pelni/";
     private $type;
 
@@ -34,7 +34,8 @@ class SetupApplicationKapalCommand extends Command
             ->setHelp("example commad install-ho http://dekalitz.gitlabl.com/ username_repo password_repo url_repository")
             ->addArgument("repository", InputArgument::REQUIRED, "url repository")
             ->addArgument('username', InputArgument::REQUIRED, 'username repository.')
-            ->addArgument("password", InputArgument::REQUIRED, "password repository");
+            ->addArgument("password", InputArgument::REQUIRED, "password repository")
+            ->addArgument("kapalId", InputArgument::REQUIRED, "kapal id");
     }
 
     public function execute(InputInterface $input, OutputInterface $output)
@@ -42,6 +43,7 @@ class SetupApplicationKapalCommand extends Command
         $this->usernameRepo = $input->getArgument("username");
         $this->passwordRepo = $input->getArgument("password");
         $this->urlRepo = $input->getArgument("repository");
+        $this->kapalId = $input->getArgument("kapalId");
         $output->writeln("source on process to pull");
         $this->pullLatestSources($output);
         $output->writeln("source cloned.");
@@ -65,7 +67,10 @@ class SetupApplicationKapalCommand extends Command
             die();
         }
 
-        exec("apt-get install php-psql");
+        exec("apt-get -y install php-pgsql");
+        exec("apt-get -y install php-xml");
+        exec("apt-get -y install php-mbstring");
+        exec("apt-get -y install php-dom");
         exec("composer install");
         exec("composer dump-autoload -o");//        exec("composer dump-autoload -o");
         exec("chmod -R 777 /var/www/html/storage");//        exec("composer dump-autoload -o");
@@ -83,6 +88,7 @@ class SetupApplicationKapalCommand extends Command
         file_put_contents(".env", $envLaravel);
         $targetDir = "/var/www/html/config/";
         chdir($targetDir);
+        $fileGetContet = str_replace("%KAPALID%", $this->kapalId, $fileGetContet);
         file_put_contents("env.php", $fileGetContet);
         chdir("/");
     }
