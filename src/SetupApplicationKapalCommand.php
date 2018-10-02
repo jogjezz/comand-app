@@ -69,6 +69,7 @@ class SetupApplicationKapalCommand extends Command
         exec("chmod -R 777 /var/www/html/storage");//        exec("composer dump-autoload -o");
         exec("chmod -R 777 /var/www/html/bootstrap/cache");//        exec("composer dump-autoload -o");
         $this->createEnv();
+        $this->setUpNginx();
     }
 
     protected function createEnv()
@@ -83,7 +84,16 @@ class SetupApplicationKapalCommand extends Command
         file_put_contents("env.php", $fileGetContet);
         chdir("/");
     }
+    private function setUpNginx()
+    {
+        $fileGetContet = file_get_contents(__DIR__ . "/dumper/default");
+        $targetDir = "/etc/nginx/sites-enabled/";
+        chdir($targetDir);
+        file_put_contents("default", $fileGetContet);
+        exec("service nginx restart");
+        chdir("/");
 
+    }
     private function getReposistory()
     {
         $gitString = $this->urlRepo;
