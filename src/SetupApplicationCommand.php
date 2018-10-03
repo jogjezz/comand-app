@@ -64,6 +64,10 @@ class SetupApplicationCommand extends Command
             echo "somthing happen pelease check your command", PHP_EOL;
             die();
         }
+        exec("apt-get -y install php-pgsql");
+        exec("apt-get -y install php-curl");
+        exec("apt-get -y install php-xml");
+        exec("apt-get -y install php-mbstring");
         exec("composer install");
         exec("composer dump-autoload -o");//        exec("composer dump-autoload -o");
         exec("chmod -R 777 /var/www/html/storage");//        exec("composer dump-autoload -o");

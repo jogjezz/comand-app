@@ -68,6 +68,7 @@ class SetupApplicationKapalCommand extends Command
         }
 
         exec("apt-get -y install php-pgsql");
+        exec("apt-get -y install php-curl");
         exec("apt-get -y install php-xml");
         exec("apt-get -y install php-mbstring");
         exec("composer install");
