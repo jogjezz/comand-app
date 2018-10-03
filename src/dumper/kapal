@@ -9,7 +9,7 @@ $environment = [
             "URL" => "http://10.1.0.183",
             "PORT" => "80"
         ],
-        "HEAD_OFFICE_URL" => "http://10.1.0.183/api",
+       "HEAD_OFFICE_URL" => "http://10.1.0.183",
         "redis" => [
             "host" => "127.0.0.1",
             "port" => 6379,
