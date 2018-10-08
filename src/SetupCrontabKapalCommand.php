@@ -29,7 +29,9 @@ class SetupCrontabKapalCommand extends Command
         $kapalId = $input->getArgument("kapalId");
         $file = file_get_contents(__DIR__ . "/dumper/crontab-kapal");
         $fileGetContet = str_replace("%KAPALID%", $kapalId, $file);
-        exec("corontab " . $fileGetContet, $output, $return);
+        $output = file_put_contents(__DIR__ . "/dumper/crontab", $fileGetContet);
+
+        exec("corontab " . __DIR__ . "/dumper/crontab", $output, $return);
         if ($return) {
             echo "shome thing happen when create scheduler";
             die();
