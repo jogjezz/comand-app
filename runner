@@ -14,5 +14,7 @@ $app->add(new \Src\SetupApplicationCommand());
 $app->add(new \Src\SetupApplicationKapalCommand());
 $app->add(new \Src\PatchDatabaseCommand());
 $app->add(new \Src\SetupServices());
+$app->add(new \Src\SetupCrontabHOCommand());
+$app->add(new \Src\SetupCrontabKapalCommand());
 $app->run();
 
