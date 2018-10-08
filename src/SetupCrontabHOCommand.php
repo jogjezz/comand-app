@@ -25,7 +25,7 @@ class SetupCrontabHOCommand extends Command
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        exec("corontab " . __DIR__ . "/dumper/crontab-ho", $output, $return);
+        exec("crontab " . __DIR__ . "/dumper/crontab-ho", $output, $return);
         if ($return) {
             echo "shome thing happen when create scheduler";
             die();
