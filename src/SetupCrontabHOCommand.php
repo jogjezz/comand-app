@@ -6,7 +6,7 @@
  * Time: 1:07
  */
 
-namespace Src\Helper;
+namespace Src;
 
 
 use Symfony\Component\Console\Command\Command;
